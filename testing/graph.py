@@ -36,4 +36,6 @@ class LinearGraph(Scene):
         # Add text and pause
         self.play(Create(text))
         self.wait(2)
-        
+
+        # Remove hare
+        self.play(hare.animate(run_time=1).shift(UP * 20))
