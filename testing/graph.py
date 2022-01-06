@@ -1,6 +1,6 @@
 from manim import *
 
-class MovingVertices(Scene):
+class LinearGraph(Scene):
     def construct(self):
         vertices = [1, 2, 3]
         edges = [(1, 2), (2, 3)]
