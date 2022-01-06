@@ -1,4 +1,4 @@
-# JT0049-01-Foxes-and-Hares
+# Research in Mathematics 2022
 
 ### Ben Caunt, Eric Liu, Helen Wu, Ganning Xu
 
