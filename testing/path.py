@@ -39,5 +39,6 @@ class Path(Scene):
         self.play(Create(text))
         self.wait(LONG_PAUSE_TIME)
 
+        # Remove elements
         self.play(FadeOut(text), Uncreate(fox), Uncreate(g))
         self.wait(PAUSE_TIME)
