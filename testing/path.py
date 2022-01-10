@@ -25,7 +25,7 @@ class Path(Scene):
 
         # Create graph
         self.play(Create(g))
-        self.wait(1)
+        self.wait(PAUSE_TIME)
 
         # Add hare
         self.play(FadeIn(hare, shift=UP, scale=0.1))
@@ -36,9 +36,7 @@ class Path(Scene):
 
         # Add text and pause
         self.play(FadeOut(hare))
-
         self.play(Create(text))
-        self.wait(2)
+        self.wait(LONG_PAUSE_TIME)
 
-        # Remove hare
-        self.wait()
+        # TODO: remove the graph and text

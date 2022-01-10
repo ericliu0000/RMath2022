@@ -3,9 +3,6 @@ from constants import *
 
 class TwoFoxCycle(Scene):
     def construct(self):
-        next_text_time = 4
-        animation_time = 1
-
         # Create 6 cycle graph
         g = Graph(CycleGraphConstants.VERTICES, 
                     CycleGraphConstants.EDGES, 
@@ -46,7 +43,7 @@ class TwoFoxCycle(Scene):
 
         # Create graph and wait
         self.play(Create(g))
-        self.wait(ANIMATION_TIME)
+        self.wait(PAUSE_TIME)
         
         # Add hare and foxes
         self.play(FadeIn(hare, shift=UP, scale=0.1))
@@ -54,28 +51,28 @@ class TwoFoxCycle(Scene):
 
         # Add text1 and pause
         self.play(Create(text1_1), Create(text1_2))
-        self.wait(ANIMATION_TIME * 3)
+        self.wait(LONG_PAUSE_TIME)
 
         # Remove text, shift foxes, and add new text
         self.play(FadeOut(text1_1), FadeOut(text1_2))
         self.play(fox1.animate(run_time=ANIMATION_TIME).move_to(g.vertices[2]), fox2.animate(run_time=ANIMATION_TIME).move_to(g.vertices[5]))
         self.play(Create(text2_1), Create(text2_2))
-        self.wait(ANIMATION_TIME * 3)
+        self.wait(LONG_PAUSE_TIME)
 
         # Cycle text again
         self.play(FadeOut(text2_1), FadeOut(text2_2))
         self.play(fox1.animate(run_time=ANIMATION_TIME).move_to(g.vertices[1]), fox2.animate(run_time=ANIMATION_TIME).move_to(g.vertices[6]))
         self.play(Create(text3_1), Create(text3_2))
-        self.wait(ANIMATION_TIME * 3)
+        self.wait(LONG_PAUSE_TIME)
 
         # Show final text
         self.play(FadeOut(text3_1), FadeOut(text3_2))
         self.play(Create(text4_1))
         self.play(hare.animate(run_time=ANIMATION_TIME).move_to(UP * 10))
-        self.wait(ANIMATION_TIME * 3)
+        self.wait(LONG_PAUSE_TIME)
 
         # Remove text and animals
         self.play(Uncreate(text4_1), Uncreate(hare), Uncreate(fox1), Uncreate(fox2))
         self.play(Uncreate(g))
-        self.wait(ANIMATION_TIME)
+        self.wait(PAUSE_TIME)
 
