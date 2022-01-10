@@ -16,6 +16,9 @@ HARE_SCALE = 0.6
 TOP_TEXT_BUFFER = 0.3
 BETWEEN_TEXT_BUFFER = 0.2
 
+# For renderAll: files to exclude
+EXCLUDE_FILES = ["constants.py"]
+
 class CycleGraphConstants:
     # Layout of vertices in 6-cycle graph
     VERTICES = [1, 2, 3, 4, 5, 6]

@@ -1,6 +1,7 @@
 import os 
 import threading
 import time 
+from constants import *
 
 t = time.time()
 files = os.listdir()
@@ -10,7 +11,7 @@ def thread_render(file):
 
 threads = []
 for f in files:
-	if f[-1] == 'y' and f[-2] == 'p' and f[-3] == '.' and f != "renderAll.py":
+	if f[-3:] == ".py" and f != "renderAll.py" and os.path.isfile(f) and f not in EXCLUDE_FILES:
 		thread = threading.Thread(target=thread_render, args=(f,))
 		threads.append(thread)
 
