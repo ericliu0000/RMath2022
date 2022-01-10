@@ -1,4 +1,5 @@
 from manim import *
+from constants import *
 
 class DisconnectedGraph(Scene):
     def construct(self):
@@ -12,14 +13,14 @@ class DisconnectedGraph(Scene):
         r.next_to(l, RIGHT, buff=0.5)
 
         # Initialize hare object
-        hare = ImageMobject("assets/hare.png")
-        hare.scale(0.24)
-        hare.move_to(l.vertices[1])
+        hare = SVGMobject(HARE_FILE_NAME)
+        hare.scale(FOX_SCALE)
+        hare.move_to(g.vertices[3])
 
         # Initialize fox object
-        fox = ImageMobject("assets/fox.png")
-        fox.scale(0.6)
-        fox.move_to(r.vertices[1])
+        fox = SVGMobject(FOX_FILE_NAME)
+        fox.scale(HARE_SCALE)
+        fox.move_to(g.vertices[6])
 
         # Make text
         text1 = MarkupText(f"what", color=RED)

@@ -1,4 +1,5 @@
 from manim import *
+from constants import *
 
 class LinearGraph(Scene):
     def construct(self):
@@ -9,14 +10,14 @@ class LinearGraph(Scene):
         g = Graph(vertices, edges, layout=layout)
 
         # Initialize hare object
-        hare = ImageMobject("assets/hare.png")
-        hare.scale(0.24)
-        hare.next_to(g.vertices[1], UP)
+        hare = SVGMobject(HARE_FILE_NAME)
+        hare.scale(FOX_SCALE)
+        hare.move_to(g.vertices[3])
 
         # Initialize fox object
-        fox = ImageMobject("assets/fox.png")
-        fox.scale(0.6)
-        fox.next_to(g.vertices[2], UP)
+        fox = SVGMobject(FOX_FILE_NAME)
+        fox.scale(HARE_SCALE)
+        fox.move_to(g.vertices[6])
 
         # Make text
         text = MarkupText(f"The hare is deceased", color=RED)
