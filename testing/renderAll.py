@@ -20,4 +20,4 @@ for thread in threads:
 for thread in threads:
 	thread.join()
 
-print(f"Rendered {len(files)} files in {time.time() - t} seconds")
+print(f"Rendered {len(files)} files in {time.time() - t} seconds.")
