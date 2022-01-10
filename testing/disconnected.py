@@ -28,7 +28,7 @@ class DisconnectedGraph(Scene):
 
         # Create graph
         self.play(Create(l), Create(r))
-        self.wait(0.5)
+        self.wait(PAUSE_TIME)
 
         # Add hare
         self.play(FadeIn(hare, shift=UP, scale=0.1))
@@ -36,7 +36,7 @@ class DisconnectedGraph(Scene):
 
         # Add text and pause
         self.play(Create(text1))
-        self.wait(1)
+        self.wait(PAUSE_TIME)
 
         # Move animals
         for i in range(10):

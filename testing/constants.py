@@ -19,6 +19,10 @@ BETWEEN_TEXT_BUFFER = 0.2
 # For renderAll: files to exclude
 EXCLUDE_FILES = ["constants.py"]
 
+# Animation wait time in seconds
+PAUSE_TIME = 1
+LONG_PAUSE_TIME = 4
+
 class CycleGraphConstants:
     # Layout of vertices in 6-cycle graph
     VERTICES = [1, 2, 3, 4, 5, 6]
@@ -26,7 +30,11 @@ class CycleGraphConstants:
     LAYOUT = {1: [-2, 1.3, 0], 2: [0, 2.3, 0], 3: [2, 1.3, 0],
             4: [2, -0.7, 0], 5: [0, -1.7, 0], 6: [-2, -0.7, 0]}
 
-    # Animation wait time in seconds
-    PAUSE_TIME = 0.5
-
     ONE_FOX_FRAMES = [3, 4, 7, 8, 11, 12, 15, 16, 19, 20]
+
+class WheelGraphConstants:
+    # Layout of vertices in wheel graph W_7
+    VERTICES = [1, 2, 3, 4, 5, 6, 7]
+    EDGES = [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 1), (1, 7), (2, 7), (3, 7), (4, 7), (5, 7), (6, 7)]
+    LAYOUT = {1: [-2, 1.3, 0], 2: [0, 2.3, 0], 3: [2, 1.3, 0], 
+            4: [2, -0.7, 0], 5: [0, -1.7, 0], 6: [-2, -0.7, 0], 7: [0, 0.3, 0]}
