@@ -1,9 +1,8 @@
 from manim import *
 
 
-class CycleGraph(Scene):
+class OneFox(Scene):
     def construct(self):
-
         next_text_time = 4
         animation_time = 1
 
