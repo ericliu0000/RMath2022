@@ -92,25 +92,3 @@ class OneFox(Scene):
         # Fade out everything
         self.play(Uncreate(hare), Uncreate(fox), Uncreate(g))
         self.wait()
-
-class TwoFox(Scene):
-    def construct(self):
-        next_text_time = 4
-        animation_time = 1
-
-        # Create 6 cycle graph
-        vertices = [1, 2, 3, 4, 5, 6]
-        edges = [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 1)]
-        layout = {1: [-2, 1, 0], 2: [0, 2, 0], 3: [2, 1, 0],
-                  4: [2, -1, 0], 5: [0, -2, 0], 6: [-2, -1, 0]}
-        g = Graph(vertices, edges, layout=layout)
-
-        # Initialize hare object
-        hare = ImageMobject("assets/hare.png")
-        hare.scale(0.24)
-        hare.move_to(g.vertices[3])
-
-        # Initialize fox object
-        fox = ImageMobject("assets/fox.png")
-        fox.scale(0.6)
-        fox.move_to(g.vertices[6])
