@@ -15,12 +15,12 @@ class DisconnectedGraph(Scene):
         # Initialize hare object
         hare = SVGMobject(HARE_FILE_NAME)
         hare.scale(FOX_SCALE)
-        hare.move_to(g.vertices[3])
+        hare.move_to(l.vertices[1])
 
         # Initialize fox object
         fox = SVGMobject(FOX_FILE_NAME)
         fox.scale(HARE_SCALE)
-        fox.move_to(g.vertices[6])
+        fox.move_to(r.vertices[1])
 
         # Make text
         text1 = MarkupText(f"what", color=RED)
