@@ -13,7 +13,7 @@ FOX_SCALE = 0.75
 HARE_SCALE = 0.6
 
 # Text buffers in units
-TOP_TEXT_BUFFER = 0.3
+TOP_TEXT_BUFFER = 0.4
 BETWEEN_TEXT_BUFFER = 0.2
 
 # For renderAll: files to exclude
@@ -23,8 +23,8 @@ class CycleGraphConstants:
     # Layout of vertices in 6-cycle graph
     VERTICES = [1, 2, 3, 4, 5, 6]
     EDGES = [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 1)]
-    LAYOUT = {1: [-2, 1, 0], 2: [0, 2, 0], 3: [2, 1, 0],
-            4: [2, -1, 0], 5: [0, -2, 0], 6: [-2, -1, 0]}
+    LAYOUT = {1: [-2, 1.3, 0], 2: [0, 2.3, 0], 3: [2, 1.3, 0],
+            4: [2, -0.7, 0], 5: [0, -1.7, 0], 6: [-2, -0.7, 0]}
 
     # Animation wait time in seconds
     PAUSE_TIME = 0.5
