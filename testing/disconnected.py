@@ -2,30 +2,31 @@ from manim import *
 
 class DisconnectedGraph(Scene):
     def construct(self):
-        # Create 6 cycle graph
-        vertices = [1, 2, 3, 4, 5, 6]
-        edges = [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 1)]
-        layout = {1: [-2, 1, 0], 2: [0, 2, 0], 3: [2, 1, 0], 4: [2, -1, 0], 5: [0, -2, 0], 6: [-2, -1, 0]}
-        g = Graph(vertices, edges, layout=layout) #, layout=layout)
+        # Create two 3 cycle graphs
+        vertices = [1, 2, 3]
+        edges = [(1, 2), (2, 3), (3, 1)]
+        l = Graph(vertices, edges)
+        r = Graph(vertices, edges)
+
+        l.move_to(LEFT * 2)
+        r.next_to(l, RIGHT, buff=0.5)
 
         # Initialize hare object
         hare = ImageMobject("assets/hare.png")
         hare.scale(0.24)
-        hare.move_to(g.vertices[3])
+        hare.move_to(l.vertices[1])
 
         # Initialize fox object
         fox = ImageMobject("assets/fox.png")
         fox.scale(0.6)
-        fox.move_to(g.vertices[1])
+        fox.move_to(r.vertices[1])
 
         # Make text
-        text1 = MarkupText(f"The hare and fox are", color=RED)
-        text2 = MarkupText(f"engaging in shennanigans.", color=RED)
-        text1.next_to(g.vertices[5], DOWN, buff=0.3)
-        text2.next_to(text1, DOWN, buff=0.2)
+        text1 = MarkupText(f"what", color=RED)
+        text1.next_to(l, DOWN, buff=0.3)
 
         # Create graph
-        self.play(Create(g))
+        self.play(Create(l), Create(r))
         self.wait(0.5)
 
         # Add hare
@@ -33,11 +34,11 @@ class DisconnectedGraph(Scene):
         self.play(FadeIn(fox, shift=UP, scale=0.1))
 
         # Add text and pause
-        self.play(Create(text1), Create(text2))
+        self.play(Create(text1))
         self.wait(1)
 
         # Move animals
         for i in range(10):
-            self.play(fox.animate(run_time=0.6).move_to(g.vertices[(i+1)%6 + 1]))
-            self.play(hare.animate(run_time=0.6).move_to(g.vertices[(i+3)%6 + 1]))
+            self.play(fox.animate(run_time=0.6).move_to(r.vertices[(i)%3 + 1]))
+            self.play(hare.animate(run_time=0.6).move_to(l.vertices[(i)%3 + 1]))
 
