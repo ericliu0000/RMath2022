@@ -34,8 +34,10 @@ class LinearGraph(Scene):
         self.play(fox.animate(run_time=2).next_to(g.vertices[1], UP))
 
         # Add text and pause
+        self.play(FadeOut(hare))
+
         self.play(Create(text))
         self.wait(2)
 
         # Remove hare
-        self.play(hare.animate(run_time=1).shift(UP * 20))
+        self.wait()
