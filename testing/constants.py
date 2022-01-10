@@ -9,8 +9,8 @@ FOX_FILE_NAME = "assets/foxBased.svg"
 HARE_FILE_NAME = "assets/hareBased.svg"
 
 # Fox and hare scales
-FOX_SCALE = 0.6
-HARE_SCALE = 0.24
+FOX_SCALE = 0.75
+HARE_SCALE = 0.6
 
 # Text buffers in units
 TOP_TEXT_BUFFER = 0.3

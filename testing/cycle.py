@@ -7,16 +7,16 @@ class OneFox(Scene):
         # Create 6 cycle graph
         g = Graph(CycleGraphConstants.VERTICES, 
                     CycleGraphConstants.EDGES, 
-                    CycleGraphConstants.LAYOUT)
+                    layout = CycleGraphConstants.LAYOUT)
 
         # Initialize hare object
         hare = SVGMobject(HARE_FILE_NAME)
-        # hare.scale(FOX_SCALE)
+        hare.scale(FOX_SCALE)
         hare.move_to(g.vertices[3])
 
         # Initialize fox object
         fox = SVGMobject(FOX_FILE_NAME)
-        # fox.scale(HARE_SCALE)
+        fox.scale(HARE_SCALE)
         fox.move_to(g.vertices[6])
 
         # Make text
@@ -90,7 +90,7 @@ class OneFox(Scene):
         self.wait()
 
         # Fade out everything
-        self.play(FadeOut(hare), FadeOut(fox), Uncreate(g))
+        self.play(Uncreate(hare), Uncreate(fox), Uncreate(g))
         self.wait()
 
 class TwoFox(Scene):
