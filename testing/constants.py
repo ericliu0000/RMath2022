@@ -5,8 +5,8 @@ NEXT_TEXT_TIME = 4
 ANIMATION_TIME = 1.0
 
 # Fox and hare file names
-FOX_FILE_NAME = "assets/fox.png"
-HARE_FILE_NAME = "assets/hare.png"
+FOX_FILE_NAME = "assets/foxBased.svg"
+HARE_FILE_NAME = "assets/hareBased.svg"
 
 # Fox and hare scales
 FOX_SCALE = 0.6

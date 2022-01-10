@@ -10,13 +10,13 @@ class OneFox(Scene):
                     CycleGraphConstants.LAYOUT)
 
         # Initialize hare object
-        hare = ImageMobject(HARE_FILE_NAME)
-        hare.scale(FOX_SCALE)
+        hare = SVGMobject(HARE_FILE_NAME)
+        # hare.scale(FOX_SCALE)
         hare.move_to(g.vertices[3])
 
         # Initialize fox object
-        fox = ImageMobject(FOX_FILE_NAME)
-        fox.scale(HARE_SCALE)
+        fox = SVGMobject(FOX_FILE_NAME)
+        # fox.scale(HARE_SCALE)
         fox.move_to(g.vertices[6])
 
         # Make text
