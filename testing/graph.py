@@ -12,12 +12,12 @@ class LinearGraph(Scene):
         # Initialize hare object
         hare = SVGMobject(HARE_FILE_NAME)
         hare.scale(FOX_SCALE)
-        hare.move_to(g.vertices[3])
+        hare.next_to(g.vertices[1], UP)
 
         # Initialize fox object
         fox = SVGMobject(FOX_FILE_NAME)
         fox.scale(HARE_SCALE)
-        fox.move_to(g.vertices[6])
+        fox.next_to(g.vertices[2], UP)
 
         # Make text
         text = MarkupText(f"The hare is deceased", color=RED)
