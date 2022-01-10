@@ -24,9 +24,9 @@ class subgraph(Scene):
         pathGraph.next_to(leftThreeCycle, RIGHT, buff=0.5)
         rightThreeCycle.next_to(rightThreeCycle, RIGHT, buff=0.5)
 
+        leftThreeCycle.move_to(leftThreeCycle.get_center() + LEFT * 2)
+
         seperatedGraph = VGroup(leftThreeCycle, pathGraph, rightThreeCycle)
 
-        self.play(FadeIn(combinedGraph))
-        self.wait(1)
-        self.play(CyclicReplace(combinedGraph, seperatedGraph))
-        self.wait(1)
+        self.play(Create(seperatedGraph))
+        self.wait(0.5)
