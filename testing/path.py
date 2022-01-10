@@ -1,7 +1,7 @@
 from manim import *
 from constants import *
 
-class LinearGraph(Scene):
+class Path(Scene):
     def construct(self):
         # Create 3 vertex path graph
         vertices = [1, 2, 3]

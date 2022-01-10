@@ -1,7 +1,7 @@
 from manim import *
 from constants import *
 
-class TwoFox(Scene):
+class TwoFoxCycle(Scene):
     def construct(self):
         next_text_time = 4
         animation_time = 1

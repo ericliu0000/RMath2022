@@ -2,7 +2,7 @@ from manim import *
 from constants import *
 
 
-class OneFox(Scene):
+class OneFoxCycle(Scene):
     def construct(self):
         # Create 6 cycle graph
         g = Graph(CycleGraphConstants.VERTICES, 
