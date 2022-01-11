@@ -77,28 +77,6 @@ class OneFoxCycle(Scene):
                 buffer += [FadeOut(text5_2), ReplacementTransform(text5_1, text6_1)]
 
             self.play(*buffer)
-            # if i == CycleGraphConstants.ONE_FOX_FRAMES[0]:
-            #     self.play(FadeOut(text1_1), FadeOut(text1_2), hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+3) % 6 + 1]), fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+6) % 6 + 1]))
-            # elif i == CycleGraphConstants.ONE_FOX_FRAMES[1]:
-            #     self.play(Create(text2_1), Create(text2_2), hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+3) % 6 + 1]), fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+6) % 6 + 1]))
-            # elif i == CycleGraphConstants.ONE_FOX_FRAMES[2]:
-            #     self.play(FadeOut(text2_1), FadeOut(text2_2), hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+3) % 6 + 1]), fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+6) % 6 + 1]))
-            # elif i == CycleGraphConstants.ONE_FOX_FRAMES[3]:
-            #     self.play(Create(text3_1), Create(text3_2), hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+3) % 6 + 1]), fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+6) % 6 + 1]))
-            # elif i == CycleGraphConstants.ONE_FOX_FRAMES[4]:
-            #     self.play(FadeOut(text3_1), FadeOut(text3_2), hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+3) % 6 + 1]), fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+6) % 6 + 1]))
-            # elif i == CycleGraphConstants.ONE_FOX_FRAMES[5]:
-            #     self.play(Create(text4_1), Create(text4_2), hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+3) % 6 + 1]), fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+6) % 6 + 1]))
-            # elif i == CycleGraphConstants.ONE_FOX_FRAMES[6]:
-            #     self.play(FadeOut(text4_1), FadeOut(text4_2), hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+3) % 6 + 1]), fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+6) % 6 + 1]))
-            # elif i == CycleGraphConstants.ONE_FOX_FRAMES[7]:
-            #     self.play(Create(text5_1), Create(text5_2), hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+3) % 6 + 1]), fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+6) % 6 + 1]))
-            # elif i == CycleGraphConstants.ONE_FOX_FRAMES[8]:
-            #     self.play(FadeOut(text5_1), FadeOut(text5_2), hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+3) % 6 + 1]), fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+6) % 6 + 1]))
-            # elif i == CycleGraphConstants.ONE_FOX_FRAMES[9]:
-            #     self.play(Create(text6_1), hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+3) % 6 + 1]), fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+6) % 6 + 1]))
-            # else:
-            #     self.play(hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+3) % 6 + 1]), fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+6) % 6 + 1]))
 
         # Fade out text
         self.play(FadeOut(text6_1))
