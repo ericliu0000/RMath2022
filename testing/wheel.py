@@ -11,18 +11,20 @@ class WheelGraph(Scene):
         # Initialize hare object
         hare = SVGMobject(HARE_FILE_NAME)
         hare.scale(FOX_SCALE)
-        hare.move_to(g.vertices[7])
+        hare.move_to(g.vertices[6])
 
         # Initialize fox object
         fox = SVGMobject(FOX_FILE_NAME)
         fox.scale(HARE_SCALE)
-        fox.move_to(g.vertices[6])
+        fox.move_to(g.vertices[7])
 
         # Initialize text
         text1_1 = MarkupText(f"Given any wheel graph, the fox and", color=RED)
         text1_2 = MarkupText(f"hare begin adjacent to another.", color=RED)
         text1_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text1_2.next_to(text1_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
+
+        
 
         text2_1 = MarkupText(f"Because the fox controls all vertices", color=RED)
         text2_2 = MarkupText(f"from the middle, the hare loses.", color=RED)
@@ -48,6 +50,16 @@ class WheelGraph(Scene):
         self.play(Create(text1_1), Create(text1_2))
         self.wait(LONG_PAUSE_TIME)
 
+        # quickly move the hare to all other vertices
+        FAST_SPEED = 0.1
+
+        for i in range(1, len(g.vertices)):
+            self.play(hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[i]), run_time=FAST_SPEED, rate_func=smooth)
+            self.wait()
+
+
+
+
         self.play(FadeOut(text1_1), FadeOut(text1_2))
         self.wait(PAUSE_TIME)
 
@@ -55,7 +67,7 @@ class WheelGraph(Scene):
         self.play(Create(text2_1), Create(text2_2))
         self.wait(LONG_PAUSE_TIME)
 
-        self.play(Uncreate(text2_1), Uncreate(text2_2), fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[7]))
+        self.play(Uncreate(text2_1), Uncreate(text2_2), fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[6]))
         self.wait(PAUSE_TIME)
 
         # Cycle text section
@@ -73,4 +85,7 @@ class WheelGraph(Scene):
         self.play(Uncreate(g), FadeOut(text4_1), FadeOut(fox))
         self.wait(PAUSE_TIME)
 
+        # uncreate the hare and the grph 
+        self.play(Uncreate(hare), Uncreate(g))
+        self.wait(PAUSE_TIME)
 

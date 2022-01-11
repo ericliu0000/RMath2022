@@ -1,6 +1,6 @@
 from manim import *
 from manim.utils import tex
-
+from constants import *
 import networkx as nx
 
 
@@ -75,7 +75,7 @@ class subgraph(Scene):
 
 
         self.play(Create(graph), Write(text))
-        self.wait(2)
+        self.wait(PAUSE_TIME)
         graph2.remove_vertices(3,4,5,6,7,8,9,10).scale(2)
         self.play(ReplacementTransform(text, text2))
         self.wait()
@@ -88,19 +88,19 @@ class subgraph(Scene):
                     Indicate(graph.edges[(8,9)], color=RED),
                     Indicate(graph.edges[(9,10)], color=RED),
                   run_time=3)
-        self.wait(2)
+        self.wait(PAUSE_TIME)
         self.play(ReplacementTransform(text2,text3))
-        self.wait(2)
+        self.wait(PAUSE_TIME)
         self.play(ReplacementTransform(graph,graph2))
         self.wait()
         self.play(Indicate(graph2), ReplacementTransform(text3,text4))
-        self.wait(4)
+        self.wait(LONG_PAUSE_TIME)
         self.play(Uncreate(graph2), Uncreate(text4))
         self.wait()
 
 
         self.play(Create(graph_nu))
-        self.wait(2)
+        self.wait(PAUSE_TIME)
         # (6,7), (7,8), (8,9), (9,10), (3,4), (0,11), (11,12), (12,13)
         self.play(Write(text5))
         self.play(Indicate(graph_nu.edges[(6,7)], color=RED),
@@ -110,10 +110,10 @@ class subgraph(Scene):
                     Indicate(graph_nu.edges[(0,11)], color=RED),
                     Indicate(graph_nu.edges[(11,12)], color=RED),
                     Indicate(graph_nu.edges[(12,13)], color=RED),
-                    run_time=3)
+                    run_time=LONG_PAUSE_TIME)
 
 
-        self.wait(2)
+        self.wait(PAUSE_TIME)
         self.play(ReplacementTransform(graph_nu, graph_nu_2))
         self.wait(0.1)
         self.play(ReplacementTransform(text5,text6))
@@ -123,7 +123,11 @@ class subgraph(Scene):
                     Indicate(graph_nu_2.edges[(2,3)], color=RED),
                     Indicate(graph_nu_2.edges[(0,3)], color=RED),
                     run_time=3)
-        self.wait(2)
+        self.wait(LONG_PAUSE_TIME)
+
+        self.play(Uncreate(graph_nu_2), Uncreate(text6))
+        self.wait()
+        
 
 
 
