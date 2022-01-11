@@ -65,15 +65,15 @@ class OneFoxCycle(Scene):
             buffer = [hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+3) % 6 + 1]), 
                         fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+6) % 6 + 1])]
 
-            if i == CycleGraphConstants.ONE_FOX_FRAMES[1]:
+            if i == CycleGraphConstants.ONE_FOX_FRAMES[0]:
                 buffer += [ReplacementTransform(text1_1, text2_1), ReplacementTransform(text1_2, text2_2)]
-            elif i == CycleGraphConstants.ONE_FOX_FRAMES[3]:
+            elif i == CycleGraphConstants.ONE_FOX_FRAMES[1]:
                 buffer += [ReplacementTransform(text2_1, text3_1), ReplacementTransform(text2_2, text3_2)]
-            elif i == CycleGraphConstants.ONE_FOX_FRAMES[5]:
+            elif i == CycleGraphConstants.ONE_FOX_FRAMES[2]:
                 buffer += [ReplacementTransform(text3_1, text4_1), ReplacementTransform(text3_2, text4_2)]
-            elif i == CycleGraphConstants.ONE_FOX_FRAMES[7]:
+            elif i == CycleGraphConstants.ONE_FOX_FRAMES[3]:
                 buffer += [ReplacementTransform(text4_1, text5_1), ReplacementTransform(text4_2, text5_2)]
-            elif i == CycleGraphConstants.ONE_FOX_FRAMES[9]:
+            elif i == CycleGraphConstants.ONE_FOX_FRAMES[4]:
                 buffer += [FadeOut(text5_2), ReplacementTransform(text5_1, text6_1)]
 
             self.play(*buffer)

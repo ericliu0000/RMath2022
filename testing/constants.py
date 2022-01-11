@@ -31,8 +31,7 @@ class CycleGraphConstants:
     LAYOUT = {1: [-2, 1.3, 0], 2: [0, 2.3, 0], 3: [2, 1.3, 0],
               4: [2, -0.7, 0], 5: [0, -1.7, 0], 6: [-2, -0.7, 0]}
 
-    ONE_FOX_FRAMES = [3, 4, 7, 8, 11, 12, 15, 16, 19, 20]
-
+    ONE_FOX_FRAMES = [i for i in range(4, 21, 4)]
 
 class WheelGraphConstants:
     # Layout of vertices in wheel graph W_7
