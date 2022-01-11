@@ -1,3 +1,5 @@
+from manim import *
+
 # Next text time in cycles
 NEXT_TEXT_TIME = 4
 
@@ -23,6 +25,7 @@ EXCLUDE_FILES = ["constants.py"]
 PAUSE_TIME = 1
 LONG_PAUSE_TIME = 4
 
+TEXT_SHIFT_AMOUNT = UP * 2.5
 
 class CycleGraphConstants:
     # Layout of vertices in 6-cycle graph
@@ -69,3 +72,6 @@ class SubgraphConstants:
         7: [-1.5, -0.5, 0], 8: [-0.5, 0, 0], 11: [-0.5, 1.5, 0],
         13: [1, 1, 0], 16: [-1, -1, 0], 18: [-1.5, 0.5, 0]
     }
+
+class OptimizationConstants:
+    ANIMATION_TIME = 3
