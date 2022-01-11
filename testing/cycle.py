@@ -50,7 +50,7 @@ class OneFoxCycle(Scene):
 
         # Create graph
         self.play(Create(g))
-        self.wait(PAUSE_TIME)
+        self.wait(0.5)
 
         # Add hare and fox
         self.play(FadeIn(hare, shift=UP, scale=0.1))
@@ -58,7 +58,7 @@ class OneFoxCycle(Scene):
 
         # Add text and pause
         self.play(Create(text1_1), Create(text1_2))
-        self.wait(PAUSE_TIME)
+        self.wait(0.7)
 
         # Move animals
         for i in range(25):
@@ -87,8 +87,8 @@ class OneFoxCycle(Scene):
 
         # Fade out text
         self.play(FadeOut(text6_1))
-        self.wait(PAUSE_TIME)
+        self.wait()
 
         # Fade out everything
         self.play(Uncreate(hare), Uncreate(fox), Uncreate(g))
-        self.wait(PAUSE_TIME)
+        self.wait()
