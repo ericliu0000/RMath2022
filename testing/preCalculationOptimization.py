@@ -72,8 +72,6 @@ class subgraph(Scene):
 
 
 
-
-
         self.play(Create(graph), Write(text))
         self.wait(PAUSE_TIME)
         graph2.remove_vertices(3,4,5,6,7,8,9,10).scale(2)
@@ -129,7 +127,7 @@ class subgraph(Scene):
         self.wait()
         
 
-
+    
 
 
 
