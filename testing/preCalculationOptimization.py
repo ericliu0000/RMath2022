@@ -77,15 +77,16 @@ class subgraph(Scene):
         graph2.remove_vertices(3,4,5,6,7,8,9,10).scale(2)
         self.play(ReplacementTransform(text, text2))
         self.wait()
-        self.play(Indicate(graph.edges[(0,3)], color=RED),
-                  Indicate(graph.edges[(1,4)], color=RED),
-                  Indicate(graph.edges[(2,5)], color=RED),
-                  Indicate(graph.edges[(5,6)], color=RED),
-                  Indicate(graph.edges[(6,7)], color=RED), 
-                    Indicate(graph.edges[(1,8)], color=RED),
-                    Indicate(graph.edges[(8,9)], color=RED),
-                    Indicate(graph.edges[(9,10)], color=RED),
-                  run_time=3)
+        self.play(*self.bulk_indicate(graph, [(0, 3), (1, 4), (2, 5), (5, 6), (6, 7), (1, 8), (8, 9), (9, 10)]))
+        # self.play(Indicate(graph.edges[(0,3)], color=RED),
+        #           Indicate(graph.edges[(1,4)], color=RED),
+        #           Indicate(graph.edges[(2,5)], color=RED),
+        #           Indicate(graph.edges[(5,6)], color=RED),
+        #           Indicate(graph.edges[(6,7)], color=RED), 
+        #             Indicate(graph.edges[(1,8)], color=RED),
+        #             Indicate(graph.edges[(8,9)], color=RED),
+        #             Indicate(graph.edges[(9,10)], color=RED),
+        #           run_time=3)
         self.wait(PAUSE_TIME)
         self.play(ReplacementTransform(text2,text3))
         self.wait(PAUSE_TIME)
@@ -125,10 +126,13 @@ class subgraph(Scene):
 
         self.play(Uncreate(graph_nu_2), Uncreate(text6))
         self.wait()
+
+
+    def bulk_indicate(self, graph, edges: list):
+        actions = []
         
+        for edge in edges:
+            actions.append(Indicate(graph.edges[edge], color=RED))
 
-    
-
-
-
+        return actions
 
