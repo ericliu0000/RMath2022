@@ -54,25 +54,27 @@ class TwoFoxCycle(Scene):
         self.wait(LONG_PAUSE_TIME)
 
         # Remove text, shift foxes, and add new text
-        self.play(FadeOut(text1_1), FadeOut(text1_2))
-        self.play(fox1.animate(run_time=ANIMATION_TIME).move_to(g.vertices[2]), fox2.animate(run_time=ANIMATION_TIME).move_to(g.vertices[5]))
-        self.play(Create(text2_1), Create(text2_2))
+        self.play(ReplacementTransform(text1_1, text2_1), 
+                    ReplacementTransform(text1_2, text2_2),
+                    fox1.animate(run_time=ANIMATION_TIME).move_to(g.vertices[2]), 
+                    fox2.animate(run_time=ANIMATION_TIME).move_to(g.vertices[5]))
         self.wait(LONG_PAUSE_TIME)
 
         # Cycle text again
-        self.play(FadeOut(text2_1), FadeOut(text2_2))
-        self.play(fox1.animate(run_time=ANIMATION_TIME).move_to(g.vertices[1]), fox2.animate(run_time=ANIMATION_TIME).move_to(g.vertices[6]))
-        self.play(Create(text3_1), Create(text3_2))
+        self.play(ReplacementTransform(text2_1, text3_1), 
+                    ReplacementTransform(text2_2, text3_2),
+                    fox1.animate(run_time=ANIMATION_TIME).move_to(g.vertices[1]), 
+                    fox2.animate(run_time=ANIMATION_TIME).move_to(g.vertices[6]))
         self.wait(LONG_PAUSE_TIME)
 
         # Show final text
-        self.play(FadeOut(text3_1), FadeOut(text3_2))
-        self.play(Create(text4_1))
-        self.play(hare.animate(run_time=ANIMATION_TIME).move_to(UP * 10))
+        self.play(ReplacementTransform(text3_1, text4_1), FadeOut(text3_2))
+        self.play(Uncreate(hare))
         self.wait(LONG_PAUSE_TIME)
 
         # Remove text and animals
-        self.play(Uncreate(text4_1), Uncreate(hare), Uncreate(fox1), Uncreate(fox2))
+        self.play(Uncreate(text4_1), Uncreate(fox1), Uncreate(fox2))
         self.play(Uncreate(g))
         self.wait(PAUSE_TIME)
+
 

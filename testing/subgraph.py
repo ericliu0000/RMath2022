@@ -3,7 +3,6 @@ from constants import *
 
 class Subgraph(Scene):
     def construct(self):
-        
         graph = Graph(SubgraphConstants.VERTICES, 
                 SubgraphConstants.EDGES, 
                 layout=SubgraphConstants.FULL_LAYOUT)
