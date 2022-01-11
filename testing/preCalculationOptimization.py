@@ -1,4 +1,3 @@
-# setup a basic manim scene 
 from manim import *
 import numpy as np 
 
