@@ -1,4 +1,4 @@
-# Research in Mathematics 2022
+# Research in Mathematics 2022 January-Term
 
 ### Ben Caunt, Eric Liu, Helen Wu, Ganning Xu
 
