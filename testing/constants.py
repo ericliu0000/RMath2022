@@ -18,9 +18,6 @@ HARE_SCALE = 0.6
 TOP_TEXT_BUFFER = 0.4
 BETWEEN_TEXT_BUFFER = 0.2
 
-# For renderAll: files to exclude
-EXCLUDE_FILES = ["constants.py"]
-
 # Animation wait time in seconds
 PAUSE_TIME = 1
 LONG_PAUSE_TIME = 4
