@@ -8,6 +8,7 @@ class subgraph(Scene):
 
         g = nx.Graph()
         g.add_nodes_from([0, 1, 2, 3])
+        graph = Graph(g)
 
 
         # Initialize hare object

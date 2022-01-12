@@ -101,11 +101,11 @@ class AltSubgraphConstants:
         FULL_LAYOUT[i] = [math.cos((math.pi * i / 5) + math.pi / 40), math.sin((math.pi * i / 5) + math.pi / 40), 0]
 
     SPLIT_LAYOUT = {}
-    for i in range(1, 15):
-        SPLIT_LAYOUT[i] = [1.5 * math.cos(math.pi * i / 7) - 2, 1.5 * math.sin(math.pi * i / 7), 0]
+#     for i in range(1, 15):
+#         SPLIT_LAYOUT[i] = [1.5 * math.cos(math.pi * i / 7) - 2, 1.5 * math.sin(math.pi * i / 7), 0]
     
     for i in range(101, 111):
-        SPLIT_LAYOUT[i] = [1.5 * math.cos(math.pi * i / 5) + 2, 1.5 * math.sin(math.pi * i / 5), 0]
+        SPLIT_LAYOUT[i] = [1.5 * math.cos(math.pi * i / 5), 1.5 * math.sin(math.pi * i / 5), 0]
 
 
 class OptimizationConstants:

@@ -28,7 +28,7 @@ public class Render {
                 try {
                     ProcessBuilder pb = new ProcessBuilder("manim", file);
                     System.out.println("Rendering " + file);
-                    // pb.inheritIO();
+                    pb.inheritIO();
                     Process p = pb.start();
                     p.waitFor();
                 } catch (Exception e) {
