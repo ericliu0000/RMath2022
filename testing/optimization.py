@@ -2,7 +2,7 @@ from manim import *
 from constants import *
 
 
-class subgraph(Scene):
+class OptimizeGraphs(Scene):
     def construct(self):        
         # Generate first pair of graphs
         simple_graph1 = Graph(OptimizationConstants.GRAPH_1_VERTICES, 
@@ -30,13 +30,13 @@ class subgraph(Scene):
         text1_2.shift(OptimizationConstants.TEXT_SHIFT)
         text1_1.next_to(text1_2, UP, buff=BETWEEN_TEXT_BUFFER)
 
-        text2_1 = MarkupText("To simplify this, we can identify", color=RED)
+        text2_1 = MarkupText("To simplify this, we can remove", color=RED)
         text2_2 = MarkupText("branches that end with a degree of one.", color=RED)
         text2_2.shift(OptimizationConstants.TEXT_SHIFT)
         text2_1.next_to(text2_2, UP, buff=BETWEEN_TEXT_BUFFER)
 
         text3_1 = MarkupText("Those are branches that the rabbit would", color=RED)
-        text3_2 = MarkupText("never follow, as it would get cornered.", color=RED)
+        text3_2 = MarkupText("never enter, as it would get cornered.", color=RED)
         text3_2.shift(OptimizationConstants.TEXT_SHIFT)
         text3_1.next_to(text3_2, UP, buff=BETWEEN_TEXT_BUFFER)
 
@@ -111,7 +111,10 @@ class subgraph(Scene):
         self.wait(LONG_PAUSE_TIME)
 
         # Remove graph and text
-        self.play(Uncreate(graph2), Uncreate(text6_1))
+        self.play(Uncreate(text6_1))
+        self.play(Uncreate(text6_2))
+        self.play(Uncreate(text6_3))
+        self.play(Uncreate(graph2))
         self.wait(PAUSE_TIME)
 
 
