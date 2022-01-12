@@ -22,6 +22,9 @@ BETWEEN_TEXT_BUFFER = 0.2
 PAUSE_TIME = 1
 LONG_PAUSE_TIME = 4
 
+# Text color as a Manim color
+TEXT_COLOR = RED
+
 class CycleGraphConstants:
     # Layout of vertices in 6-cycle graph
     VERTICES = [1, 2, 3, 4, 5, 6]

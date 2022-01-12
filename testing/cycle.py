@@ -20,32 +20,32 @@ class OneFoxCycle(Scene):
         fox.move_to(g.vertices[6])
 
         # Make text
-        text1_1 = MarkupText(f"The hare and fox are", color=RED)
-        text1_2 = MarkupText(f"engaging in shennanigans.", color=RED)
+        text1_1 = MarkupText(f"The hare and fox are", color=TEXT_COLOR)
+        text1_2 = MarkupText(f"engaging in shennanigans.", color=TEXT_COLOR)
         text1_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text1_2.next_to(text1_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
-        text2_1 = MarkupText(f"The distance between the hare", color=RED)
-        text2_2 = MarkupText(f"and the fox is always (n/2) - 1.", color=RED)
+        text2_1 = MarkupText(f"The distance between the hare", color=TEXT_COLOR)
+        text2_2 = MarkupText(f"and the fox is always (n/2) - 1.", color=TEXT_COLOR)
         text2_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text2_2.next_to(text2_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
-        text3_1 = MarkupText(f"where n is the number of", color=RED)
-        text3_2 = MarkupText(f"vertices in the cycle graph.", color=RED)
+        text3_1 = MarkupText(f"where n is the number of", color=TEXT_COLOR)
+        text3_2 = MarkupText(f"vertices in the cycle graph.", color=TEXT_COLOR)
         text3_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text3_2.next_to(text3_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
-        text4_1 = MarkupText(f"Because n is greater than or equal to 4,", color=RED)
-        text4_2 = MarkupText(f"and the distance is always (n/2) - 1,", color=RED)
+        text4_1 = MarkupText(f"Because n is greater than or equal to 4,", color=TEXT_COLOR)
+        text4_2 = MarkupText(f"and the distance is always (n/2) - 1,", color=TEXT_COLOR)
         text4_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text4_2.next_to(text4_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
-        text5_1 = MarkupText(f"the distance between the hare ", color=RED)
-        text5_2 = MarkupText(f"and the fox is always at least 1.", color=RED)
+        text5_1 = MarkupText(f"the distance between the hare ", color=TEXT_COLOR)
+        text5_2 = MarkupText(f"and the fox is always at least 1.", color=TEXT_COLOR)
         text5_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text5_2.next_to(text5_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
-        text6_1 = MarkupText(f"Thus, the hare is not deceased.", color=RED)
+        text6_1 = MarkupText(f"Thus, the hare is not deceased.", color=TEXT_COLOR)
         text6_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
 
         # Create graph

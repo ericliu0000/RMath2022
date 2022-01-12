@@ -19,24 +19,24 @@ class WheelGraph(Scene):
         fox.move_to(g.vertices[7])
 
         # Initialize text
-        text1_1 = MarkupText(f"Given any wheel graph, the fox and", color=RED)
-        text1_2 = MarkupText(f"hare begin adjacent to another.", color=RED)
+        text1_1 = MarkupText(f"Given any wheel graph, the fox and", color=TEXT_COLOR)
+        text1_2 = MarkupText(f"hare begin adjacent to another.", color=TEXT_COLOR)
         text1_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text1_2.next_to(text1_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
         
 
-        text2_1 = MarkupText(f"Because the fox controls all vertices", color=RED)
-        text2_2 = MarkupText(f"from the middle, the hare loses.", color=RED)
+        text2_1 = MarkupText(f"Because the fox controls all vertices", color=TEXT_COLOR)
+        text2_2 = MarkupText(f"from the middle, the hare loses.", color=TEXT_COLOR)
         text2_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text2_2.next_to(text2_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
-        text3_1 = MarkupText(f"The hare cannot move to any other", color=RED)
-        text3_2 = MarkupText(f"vertices due to the fox's position.", color=RED)
+        text3_1 = MarkupText(f"The hare cannot move to any other", color=TEXT_COLOR)
+        text3_2 = MarkupText(f"vertices due to the fox's position.", color=TEXT_COLOR)
         text3_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text3_2.next_to(text3_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
-        text4_1 = MarkupText(f"The hare is deceased", color=RED)
+        text4_1 = MarkupText(f"The hare is deceased", color=TEXT_COLOR)
         text4_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
 
         # Create graph

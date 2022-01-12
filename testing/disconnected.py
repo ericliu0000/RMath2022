@@ -23,7 +23,7 @@ class DisconnectedGraph(Scene):
         fox.move_to(r.vertices[1])
 
         # Make text
-        text1 = MarkupText(f"what", color=RED)
+        text1 = MarkupText(f"what", color=TEXT_COLOR)
         text1.next_to(l, DOWN, buff=0.3)
 
         # Create graph

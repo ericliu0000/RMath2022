@@ -25,34 +25,34 @@ class OptimizeGraphs(Scene):
         graph2.shift(OptimizationConstants.GRAPH_SHIFT)
 
         # Make text
-        text1_1 = MarkupText("We start off with a complex", color=RED)
-        text1_2 = MarkupText("graph, having many branches.", color=RED)
+        text1_1 = MarkupText("We start off with a complex", color=TEXT_COLOR)
+        text1_2 = MarkupText("graph, having many branches.", color=TEXT_COLOR)
         text1_2.shift(OptimizationConstants.TEXT_SHIFT)
         text1_1.next_to(text1_2, UP, buff=BETWEEN_TEXT_BUFFER)
 
-        text2_1 = MarkupText("To simplify this, we can remove", color=RED)
-        text2_2 = MarkupText("branches that end with a degree of one.", color=RED)
+        text2_1 = MarkupText("To simplify this, we can remove", color=TEXT_COLOR)
+        text2_2 = MarkupText("branches that end with a degree of one.", color=TEXT_COLOR)
         text2_2.shift(OptimizationConstants.TEXT_SHIFT)
         text2_1.next_to(text2_2, UP, buff=BETWEEN_TEXT_BUFFER)
 
-        text3_1 = MarkupText("Those are branches that the rabbit would", color=RED)
-        text3_2 = MarkupText("never enter, as it would get cornered.", color=RED)
+        text3_1 = MarkupText("Those are branches that the rabbit would", color=TEXT_COLOR)
+        text3_2 = MarkupText("never enter, as it would get cornered.", color=TEXT_COLOR)
         text3_2.shift(OptimizationConstants.TEXT_SHIFT)
         text3_1.next_to(text3_2, UP, buff=BETWEEN_TEXT_BUFFER)
 
-        text4_1 = MarkupText("After simplifying the graph, we can", color=RED)
-        text4_2 = MarkupText("see that this graph has a fox number of 1.", color=RED)
+        text4_1 = MarkupText("After simplifying the graph, we can", color=TEXT_COLOR)
+        text4_2 = MarkupText("see that this graph has a fox number of 1.", color=TEXT_COLOR)
         text4_2.shift(OptimizationConstants.TEXT_SHIFT)
         text4_1.next_to(text4_2, UP, buff=BETWEEN_TEXT_BUFFER)
 
-        text5_1 = MarkupText("We can also use this in graphs", color=RED)
-        text5_2 = MarkupText("with multiple sub-cycle graphs.", color=RED)
+        text5_1 = MarkupText("We can also use this in graphs", color=TEXT_COLOR)
+        text5_2 = MarkupText("with multiple sub-cycle graphs.", color=TEXT_COLOR)
         text5_2.shift(OptimizationConstants.TEXT_SHIFT)
         text5_1.next_to(text5_2, UP, buff=BETWEEN_TEXT_BUFFER)
 
-        text6_1 = MarkupText("This graph has a fox number of 2,", color=RED)
-        text6_2 = MarkupText("because after cleaning the graph, there", color=RED)
-        text6_3 = MarkupText("there is a cycle with a fox number of 2.", color=RED)
+        text6_1 = MarkupText("This graph has a fox number of 2,", color=TEXT_COLOR)
+        text6_2 = MarkupText("because after cleaning the graph, there", color=TEXT_COLOR)
+        text6_3 = MarkupText("there is a cycle with a fox number of 2.", color=TEXT_COLOR)
         text6_3.shift(OptimizationConstants.TEXT_SHIFT - UP)
         text6_2.next_to(text6_3, UP, buff=BETWEEN_TEXT_BUFFER)
         text6_1.next_to(text6_2, UP, buff=BETWEEN_TEXT_BUFFER)
@@ -122,6 +122,6 @@ class OptimizeGraphs(Scene):
         actions = []
 
         for edge in edges:
-            actions.append(Indicate(graph.edges[edge], color=RED))
+            actions.append(Indicate(graph.edges[edge], color=TEXT_COLOR))
 
         return actions

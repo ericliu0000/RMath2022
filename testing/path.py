@@ -20,7 +20,7 @@ class Path(Scene):
         fox.next_to(g.vertices[2], UP)
 
         # Make text
-        text = MarkupText(f"The hare is deceased", color=RED)
+        text = MarkupText(f"The hare is deceased", color=TEXT_COLOR)
         text.next_to(g, DOWN, buff=1)
 
         # Create graph

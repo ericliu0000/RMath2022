@@ -23,22 +23,22 @@ class TwoFoxCycle(Scene):
         fox2.move_to(g.vertices[4])
         
         # Make text
-        text1_1 = MarkupText(f"The hare and foxes begin", color=RED)
-        text1_2 = MarkupText(f"opposite from another.", color=RED)
+        text1_1 = MarkupText(f"The hare and foxes begin", color=TEXT_COLOR)
+        text1_2 = MarkupText(f"opposite from another.", color=TEXT_COLOR)
         text1_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text1_2.next_to(text1_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
-        text2_1 = MarkupText(f"The distance between the hare", color=RED)
-        text2_2 = MarkupText(f"and the fox is floor((n - 1) / 2)", color=RED)
+        text2_1 = MarkupText(f"The distance between the hare", color=TEXT_COLOR)
+        text2_2 = MarkupText(f"and the fox is floor((n - 1) / 2)", color=TEXT_COLOR)
         text2_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text2_2.next_to(text2_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
-        text3_1 = MarkupText(f"Thus, it takes floor((n - 1) / 2)", color=RED)
-        text3_2 = MarkupText(f"moves for the foxes to reach the hare.", color=RED)
+        text3_1 = MarkupText(f"Thus, it takes floor((n - 1) / 2)", color=TEXT_COLOR)
+        text3_2 = MarkupText(f"moves for the foxes to reach the hare.", color=TEXT_COLOR)
         text3_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text3_2.next_to(text3_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
-        text4_1 = MarkupText(f"Now, the hare is deceased", color=RED)
+        text4_1 = MarkupText(f"Now, the hare is deceased", color=TEXT_COLOR)
         text4_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
 
         # Create graph and wait
