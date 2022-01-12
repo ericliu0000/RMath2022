@@ -1,3 +1,5 @@
+from manim import *
+
 # Next text time in cycles
 NEXT_TEXT_TIME = 4
 
@@ -22,7 +24,6 @@ EXCLUDE_FILES = ["constants.py"]
 # Animation wait time in seconds
 PAUSE_TIME = 1
 LONG_PAUSE_TIME = 4
-
 
 class CycleGraphConstants:
     # Layout of vertices in 6-cycle graph
@@ -69,3 +70,20 @@ class SubgraphConstants:
         7: [-1.5, -0.5, 0], 8: [-0.5, 0, 0], 11: [-0.5, 1.5, 0],
         13: [1, 1, 0], 16: [-1, -1, 0], 18: [-1.5, 0.5, 0]
     }
+
+class OptimizationConstants:
+    # Duration of animation in seconds
+    ANIMATION_TIME = 3
+
+    # Amount of space to offset, in units
+    TEXT_SHIFT = UP * 2.5
+    GRAPH_SHIFT = DOWN * 1.0
+
+    GRAPH_1_VERTICES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    GRAPH_1_EDGES = [(0, 2), (1, 0), (1, 2), (0, 3), (1, 4), (2, 5),
+                    (5, 6), (6, 7), (1, 8), (8, 9), (9, 10)]
+
+    GRAPH_2_VERTICES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    GRAPH_2_EDGES = [(0, 1), (1, 2), (2, 3), (0, 3), (4, 5), 
+                    (5, 6), (4, 6), (6, 7), (7, 8), (8, 9), (9, 10), 
+                    (3, 4), (0, 11), (11, 12), (12, 13)]
