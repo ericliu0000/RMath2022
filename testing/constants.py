@@ -35,6 +35,16 @@ def bulk_indicate(graph: Graph, edges: list):
 
     return actions
 
+
+def bulk_indicate_points(graph: Graph, points: list):
+    actions = []
+
+    for point in points:
+        actions.append(Indicate(graph.vertices[point], 
+        color=OptimalPlacementConstants.INDICATION_COLOR))
+
+    return actions
+
 class CycleGraphConstants:
     # Layout of vertices in 6-cycle graph
     VERTICES = [1, 2, 3, 4, 5, 6]
@@ -101,9 +111,7 @@ class AltSubgraphConstants:
         FULL_LAYOUT[i] = [math.cos((math.pi * i / 5) + math.pi / 40), math.sin((math.pi * i / 5) + math.pi / 40), 0]
 
     SPLIT_LAYOUT = {}
-#     for i in range(1, 15):
-#         SPLIT_LAYOUT[i] = [1.5 * math.cos(math.pi * i / 7) - 2, 1.5 * math.sin(math.pi * i / 7), 0]
-    
+        
     for i in range(101, 111):
         SPLIT_LAYOUT[i] = [1.5 * math.cos(math.pi * i / 5), 1.5 * math.sin(math.pi * i / 5), 0]
 
@@ -126,10 +134,10 @@ class OptimizationConstants:
                     (3, 4), (0, 11), (11, 12), (12, 13)]
 
 class OptimalPlacementConstants:
-    VERTICES = [1, 2, 3, 4, 5, 6, 7, 8]
-    EDGES = [(1, 2), (2, 3), (3, 4), (4, 1), (5, 6), (6, 7), (7, 8), (8, 5), (4, 5)]
+    VERTICES = [1, 2, 3, 4, 5, 6, 7]
+    EDGES = [(1, 2), (2, 3), (3, 1), (4, 5), (5, 6), (6, 7), (7, 4), (3, 4)]
 
-    LAYOUT = {1: [-1.5, -1, 0], 2: [-2.5, 0, 0], 3: [-1.5, 1, 0], 
-            4: [-0.5, 0, 0], 5: [0.5, 0, 0], 6: [1.5, 1, 0], 
-            7: [2.5, 0, 0], 8: [1.5, -1, 0]}
+    LAYOUT = {1: [-1.5, -1, 0], 2: [-1.5, 1, 0],  3: [-0.5, 0, 0], 
+            4: [0.5, 0, 0], 5: [1.5, 1, 0], 6: [2.5, 0, 0], 7: [1.5, -1, 0]}
 
+    INDICATION_COLOR = YELLOW
