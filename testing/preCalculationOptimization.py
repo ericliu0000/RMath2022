@@ -1,113 +1,112 @@
 from manim import *
-from manim.utils import tex
 from constants import *
-import networkx as nx
-
-# automatic_layouts = {
-#     "circular": nx.layout.circular_layout,
-#     "kamada_kawai": nx.layout.kamada_kawai_layout,
-#     "planar": nx.layout.planar_layout,
-#     "random": nx.layout.random_layout,
-#     "shell": nx.layout.shell_layout,
-#     "spectral": nx.layout.spectral_layout,
-#     "partite": nx.layout.multipartite_layout,
-#     "tree": _tree_layout,
-#     "spiral": nx.layout.spiral_layout,
-#     "spring": nx.layout.spring_layout,
-# }
-
-
 
 
 class subgraph(Scene):
     def construct(self):
-        text = Text("A complex graph with many branches").shift(
-            TEXT_SHIFT_AMOUNT)
-        text.scale(0.5)
+        GRAPH_1_VERTICES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        GRAPH_1_EDGES = [(0, 2), (1, 0), (1, 2), (0, 3), (1, 4), (2, 5),
+                        (5, 6), (6, 7), (1, 8), (8, 9), (9, 10)]
 
-        text2 = Text("We can identify branches that end with a degree of one").shift(
-            TEXT_SHIFT_AMOUNT)
-        text2.scale(0.5)
-
-        text3 = Text("Those are branches that the rabbit should NOT follow").shift(
-            TEXT_SHIFT_AMOUNT)
-        text3.scale(0.5)
-
-        text4 = Text("After simplifying the graph, we can identify this graph has a fox number of 1.").shift(
-            TEXT_SHIFT_AMOUNT)
-        text4.scale(0.5)
-
-        text5 = Text("We can repeat the process for graphs with mutliple cycles.").shift(
-            TEXT_SHIFT_AMOUNT)
-        text5.scale(0.5)
-
-        text6 = MarkupText("We can identify that this graph has a fox number of 2 because after cleaning the graph, \n there is a cycle with a fox number of 2.").shift(
-            TEXT_SHIFT_AMOUNT)
-        text6.scale(0.5)
-
-        G = nx.Graph()
-        G.add_nodes_from([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-        G.add_edges_from([(0, 2), (1, 0), (1, 2), (0, 3), (1, 4),
-                         (2, 5), (5, 6), (6, 7), (1, 8), (8, 9), (9, 10)])
-
-        G2 = nx.Graph()
-
-        # 0 - 6 are of the actual cycle graphs, th rest are branches
-        G2.add_nodes_from([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13])
-        G2.add_edges_from([(0, 1), (1, 2), (2, 3), (0, 3), (4, 5), 
+        GRAPH_2_VERTICES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+        GRAPH_2_EDGES = [(0, 1), (1, 2), (2, 3), (0, 3), (4, 5), 
                         (5, 6), (4, 6), (6, 7), (7, 8), (8, 9), (9, 10), 
-                        (3, 4), (0, 11), (11, 12), (12, 13)])
-
-        graph_nu = Graph(list(G2.nodes), list(G2.edges),
-                         layout="kamada_kawai", partitions=[[0, 1]]).scale(1.5)
-
-        graph_nu_2 = graph_nu.copy()
-        graph_nu_2.remove_vertices(7, 8, 9, 10, 11, 12, 13)
-
-        graph = Graph(list(G.nodes), list(G.edges),
+                        (3, 4), (0, 11), (11, 12), (12, 13)]
+        
+        # Generate first pair of graphs
+        simple_graph1 = Graph(GRAPH_1_VERTICES, GRAPH_1_EDGES,
                       layout="kamada_kawai", partitions=[[0, 1]]).scale(1.5)
-        graph2 = graph.copy()
+        simple_graph2 = simple_graph1.copy()
+        simple_graph2.remove_vertices(3, 4, 5, 6, 7, 8, 9, 10).scale(2)
 
-        self.play(Create(graph), Write(text))
+        # Generate second pair of graphs
+        graph1 = Graph(GRAPH_2_VERTICES, GRAPH_2_EDGES,
+                    layout="kamada_kawai", partitions=[[0, 1]]).scale(1.5)
+        graph2 = graph1.copy()
+        graph2.remove_vertices(7, 8, 9, 10, 11, 12, 13)
+
+
+        # Make text
+        text1_1 = MarkupText("We start off with a complex", color=RED)
+        text1_2 = MarkupText("graph, having many branches.", color=RED)
+        text1_2.shift(OptimizationConstants.TEXT_SHIFT)
+        text1_1.next_to(text1_2, UP, buff=BETWEEN_TEXT_BUFFER)
+
+        text2_1 = MarkupText("To simplify this, we can identify", color=RED)
+        text2_2 = MarkupText("branches that end with a degree of one", color=RED)
+        text2_2.shift(OptimizationConstants.TEXT_SHIFT)
+        text2_1.next_to(text2_2, UP, buff=BETWEEN_TEXT_BUFFER)
+
+        text3_1 = MarkupText("Those are branches that the rabbit would", color=RED)
+        text3_2 = MarkupText("never follow, as it would get cornered.", color=RED)
+        text3_2.shift(OptimizationConstants.TEXT_SHIFT)
+        text3_1.next_to(text3_2, UP, buff=BETWEEN_TEXT_BUFFER)
+
+        text4_1 = MarkupText("After simplifying the graph, we can", color=RED)
+        text4_2 = MarkupText("identify this graph has a fox number of 1.", color=RED)
+        text4_2.shift(OptimizationConstants.TEXT_SHIFT)
+        text4_1.next_to(text4_2, UP, buff=BETWEEN_TEXT_BUFFER)
+
+        text5_1 = MarkupText("We can repeat the process for graphs with", color=RED)
+        text5_2 = MarkupText("multiple sub-graphs that are cycle graphs.", color=RED)
+        text5_2.shift(OptimizationConstants.TEXT_SHIFT)
+        text5_1.next_to(text5_2, UP, buff=BETWEEN_TEXT_BUFFER)
+
+        text6_1 = MarkupText("We can identify that this graph has a", color=RED)
+        text6_2 = MarkupText("fox number of 2 because after cleaning the", color=RED)
+        text6_3 = MarkupText("graph, there is a cycle with a fox number of 2.", color=RED)
+        text6_3.shift(OptimizationConstants.TEXT_SHIFT)
+        text6_2.next_to(text6_3, UP, buff=BETWEEN_TEXT_BUFFER)
+        text6_1.next_to(text6_2, UP, buff=BETWEEN_TEXT_BUFFER)
+
+        # Create graph and text
+        self.play(Create(simple_graph1), Write(text1_1))
+        self.wait(LONG_PAUSE_TIME)
+        self.play(ReplacementTransform(text1_1, text2_1))
+
+        # Emphasize vestigial structures
         self.wait(PAUSE_TIME)
-        graph2.remove_vertices(3, 4, 5, 6, 7, 8, 9, 10).scale(2)
-        self.play(ReplacementTransform(text, text2))
-        self.wait()
-        self.play(*self.bulk_indicate(graph,
+        self.play(*self.bulk_indicate(simple_graph1,
                 [(0, 3), (1, 4), (2, 5), (5, 6), (6, 7), (1, 8), (8, 9), (9, 10)]),
                 run_time=OptimizationConstants.ANIMATION_TIME)
+        self.wait(PAUSE_TIME)
 
+        # Cycle text and graph
+        self.play(ReplacementTransform(text2_1, text3_1))
         self.wait(PAUSE_TIME)
-        self.play(ReplacementTransform(text2, text3))
+        self.play(ReplacementTransform(simple_graph1, simple_graph2))
         self.wait(PAUSE_TIME)
-        self.play(ReplacementTransform(graph, graph2))
-        self.wait()
-        self.play(Indicate(graph2), ReplacementTransform(text3, text4))
+
+        # Emphasize entire graph, and swap text
+        self.play(Indicate(simple_graph2), ReplacementTransform(text3_1, text4_1))
         self.wait(LONG_PAUSE_TIME)
-        self.play(Uncreate(graph2), Uncreate(text4))
-        self.wait()
 
-        self.play(Create(graph_nu))
+        # Remove graph and text
+        self.play(Uncreate(simple_graph2), Uncreate(text4_1))
         self.wait(PAUSE_TIME)
-        self.play(Write(text5))
 
-        self.play(*self.bulk_indicate(graph_nu,
-                                      [(6, 7), (7, 8), (8, 9), (9, 10), (0, 11), (11, 12), (12, 13)]),
-                  run_time=OptimizationConstants.ANIMATION_TIME)
-
+        # Introduce second graph and text
+        self.play(Create(graph1))
         self.wait(PAUSE_TIME)
-        self.play(ReplacementTransform(graph_nu, graph_nu_2))
-        self.wait(0.1)
-        self.play(ReplacementTransform(text5, text6))
-        self.wait(0.1)
+        self.play(Write(text5_1))
 
-        self.play(*self.bulk_indicate(graph_nu_2,
+        # Emphasize vestigial structures on second graph
+        self.play(*self.bulk_indicate(graph1,
+                    [(6, 7), (7, 8), (8, 9), (9, 10), (0, 11), (11, 12), (12, 13)]),
+                    run_time=OptimizationConstants.ANIMATION_TIME)
+        self.wait(PAUSE_TIME)
+
+        # Cycle text and indicate graph
+        self.play(ReplacementTransform(graph1, graph2), 
+                ReplacementTransform(text5_1, text6_1))
+        self.wait(PAUSE_TIME)
+        self.play(*self.bulk_indicate(graph2,
                                 [(0, 1), (1, 2), (2, 3), (0, 3)]),
                                 run_time=OptimizationConstants.ANIMATION_TIME)
-
         self.wait(LONG_PAUSE_TIME)
 
-        self.play(Uncreate(graph_nu_2), Uncreate(text6))
+        # Remove graph and text
+        self.play(Uncreate(graph2), Uncreate(text6_1))
         self.wait(PAUSE_TIME)
 
     def bulk_indicate(self, graph, edges: list):

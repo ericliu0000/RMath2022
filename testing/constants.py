@@ -25,8 +25,6 @@ EXCLUDE_FILES = ["constants.py"]
 PAUSE_TIME = 1
 LONG_PAUSE_TIME = 4
 
-TEXT_SHIFT_AMOUNT = UP * 2.5
-
 class CycleGraphConstants:
     # Layout of vertices in 6-cycle graph
     VERTICES = [1, 2, 3, 4, 5, 6]
@@ -74,4 +72,8 @@ class SubgraphConstants:
     }
 
 class OptimizationConstants:
+    # Duration of animation in seconds
     ANIMATION_TIME = 3
+
+    # Amount of space to move text up to, in UP units
+    TEXT_SHIFT = UP * 2.5
