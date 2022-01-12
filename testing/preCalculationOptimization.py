@@ -3,24 +3,17 @@ from constants import *
 
 
 class subgraph(Scene):
-    def construct(self):
-        GRAPH_1_VERTICES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        GRAPH_1_EDGES = [(0, 2), (1, 0), (1, 2), (0, 3), (1, 4), (2, 5),
-                        (5, 6), (6, 7), (1, 8), (8, 9), (9, 10)]
-
-        GRAPH_2_VERTICES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-        GRAPH_2_EDGES = [(0, 1), (1, 2), (2, 3), (0, 3), (4, 5), 
-                        (5, 6), (4, 6), (6, 7), (7, 8), (8, 9), (9, 10), 
-                        (3, 4), (0, 11), (11, 12), (12, 13)]
-        
+    def construct(self):        
         # Generate first pair of graphs
-        simple_graph1 = Graph(GRAPH_1_VERTICES, GRAPH_1_EDGES,
-                      layout="kamada_kawai", partitions=[[0, 1]]).scale(1.5)
+        simple_graph1 = Graph(OptimizationConstants.GRAPH_1_VERTICES, 
+                        OptimizationConstants.GRAPH_1_EDGES,
+                        layout="kamada_kawai", partitions=[[0, 1]]).scale(1.5)
         simple_graph2 = simple_graph1.copy()
         simple_graph2.remove_vertices(3, 4, 5, 6, 7, 8, 9, 10).scale(2)
 
         # Generate second pair of graphs
-        graph1 = Graph(GRAPH_2_VERTICES, GRAPH_2_EDGES,
+        graph1 = Graph(OptimizationConstants.GRAPH_2_VERTICES,\
+                    OptimizationConstants.GRAPH_2_EDGES,
                     layout="kamada_kawai", partitions=[[0, 1]]).scale(1.5)
         graph2 = graph1.copy()
         graph2.remove_vertices(7, 8, 9, 10, 11, 12, 13)

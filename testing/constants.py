@@ -77,3 +77,12 @@ class OptimizationConstants:
 
     # Amount of space to move text up to, in UP units
     TEXT_SHIFT = UP * 2.5
+
+    GRAPH_1_VERTICES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    GRAPH_1_EDGES = [(0, 2), (1, 0), (1, 2), (0, 3), (1, 4), (2, 5),
+                    (5, 6), (6, 7), (1, 8), (8, 9), (9, 10)]
+
+    GRAPH_2_VERTICES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    GRAPH_2_EDGES = [(0, 1), (1, 2), (2, 3), (0, 3), (4, 5), 
+                    (5, 6), (4, 6), (6, 7), (7, 8), (8, 9), (9, 10), 
+                    (3, 4), (0, 11), (11, 12), (12, 13)]
