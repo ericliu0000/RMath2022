@@ -54,31 +54,26 @@ class WheelGraph(Scene):
         FAST_SPEED = 0.1
 
         for i in range(1, len(g.vertices)):
-            self.play(hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[i]), run_time=FAST_SPEED, rate_func=smooth)
+            self.play(hare.animate().move_to(g.vertices[i]), run_time=FAST_SPEED, rate_func=smooth)
             self.wait()
 
+        self.play(ReplacementTransform(text1_1, text2_1), 
+                ReplacementTransform(text1_2, text2_2))
+        self.wait(LONG_PAUSE_TIME)
 
-
-
-        self.play(FadeOut(text1_1), FadeOut(text1_2))
+        self.play(fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[6]))
         self.wait(PAUSE_TIME)
 
         # Cycle text section
-        self.play(Create(text2_1), Create(text2_2))
+        self.play(ReplacementTransform(text2_1, text3_1), 
+                ReplacementTransform(text2_2, text3_2))
         self.wait(LONG_PAUSE_TIME)
 
-        self.play(Uncreate(text2_1), Uncreate(text2_2), fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[6]))
-        self.wait(PAUSE_TIME)
-
-        # Cycle text section
-        self.play(Create(text3_1), Create(text3_2))
-        self.wait(LONG_PAUSE_TIME)
-
-        self.play(Uncreate(text3_1), Uncreate(text3_2), Uncreate(hare))
+        self.play(Uncreate(hare))
         self.wait(PAUSE_TIME)
 
         # Last text section
-        self.play(Create(text4_1))
+        self.play(ReplacementTransform(text3_1, text4_1), Uncreate(text3_2))
         self.wait(LONG_PAUSE_TIME)
 
         # Remove all objects
@@ -88,4 +83,3 @@ class WheelGraph(Scene):
         # uncreate the hare and the grph 
         self.play(Uncreate(hare), Uncreate(g))
         self.wait(PAUSE_TIME)
-
