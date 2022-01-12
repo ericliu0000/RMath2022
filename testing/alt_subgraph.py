@@ -15,7 +15,7 @@ class AlternateSubgraph(Scene):
                     run_time=LONG_PAUSE_TIME)
         self.wait(LONG_PAUSE_TIME)
 
-        # Remove edges to expose subgraphs
+        # Remove edges to expose subgraph
         for edge in AltSubgraphConstants.EDGES[24:]:
             self.play(g.animate(run_time=0.05).remove_edges(edge))
             self.wait(0.05)
@@ -24,8 +24,6 @@ class AlternateSubgraph(Scene):
             self.wait(0.05)
         for i in range(1, 15):
             self.play(g.animate(run_time=0.05).remove_vertices(i))
-
-        
         self.wait(LONG_PAUSE_TIME)
 
         # Change layout of graph
