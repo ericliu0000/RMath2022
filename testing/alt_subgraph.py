@@ -8,7 +8,7 @@ class AlternateSubgraph(Scene):
                     layout=AltSubgraphConstants.FULL_LAYOUT)
         
         self.play(Create(g))
-        self.wait(LONG_PAUSE_TIME)
+        self.wait(PAUSE_TIME)
 
         # Indicate the subgraphs
         self.play(*bulk_indicate(g, AltSubgraphConstants.EDGES[14:24]), 
