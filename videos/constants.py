@@ -141,5 +141,6 @@ class OptimalPlacementConstants:
             4: [1, 0, 0], 5: [2.5, 1.5, 0], 6: [4, 0, 0], 7: [2.5, -1.5, 0]}
 
     INDICATION_COLOR = YELLOW
+    TEXT_SHIFT = DOWN * 2.5
 
     MOVES = [[5, 3], [6, 4], [5, 7], [6, 4], [5, 7], [6, 4], [5, 7]]
