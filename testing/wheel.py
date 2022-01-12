@@ -77,9 +77,7 @@ class WheelGraph(Scene):
         self.wait(LONG_PAUSE_TIME)
 
         # Remove all objects
-        self.play(Uncreate(g), FadeOut(text4_1), FadeOut(fox))
+        self.play(Uncreate(g), FadeOut(text4_1), FadeOut(fox),Uncreate(hare))
         self.wait(PAUSE_TIME)
 
-        # uncreate the hare and the grph 
-        self.play(Uncreate(hare), Uncreate(g))
-        self.wait(PAUSE_TIME)
+
