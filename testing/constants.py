@@ -75,8 +75,9 @@ class OptimizationConstants:
     # Duration of animation in seconds
     ANIMATION_TIME = 3
 
-    # Amount of space to move text up to, in UP units
+    # Amount of space to offset, in units
     TEXT_SHIFT = UP * 2.5
+    GRAPH_SHIFT = DOWN * 1.0
 
     GRAPH_1_VERTICES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     GRAPH_1_EDGES = [(0, 2), (1, 0), (1, 2), (0, 3), (1, 4), (2, 5),
