@@ -111,7 +111,7 @@ class AltSubgraphConstants:
         FULL_LAYOUT[i] = [math.cos((math.pi * i / 5) + math.pi / 40), math.sin((math.pi * i / 5) + math.pi / 40), 0]
 
     SPLIT_LAYOUT = {}
-        
+
     for i in range(101, 111):
         SPLIT_LAYOUT[i] = [1.5 * math.cos(math.pi * i / 5), 1.5 * math.sin(math.pi * i / 5), 0]
 
@@ -137,7 +137,9 @@ class OptimalPlacementConstants:
     VERTICES = [1, 2, 3, 4, 5, 6, 7]
     EDGES = [(1, 2), (2, 3), (3, 1), (4, 5), (5, 6), (6, 7), (7, 4), (3, 4)]
 
-    LAYOUT = {1: [-1.5, -1, 0], 2: [-1.5, 1, 0],  3: [-0.5, 0, 0], 
-            4: [0.5, 0, 0], 5: [1.5, 1, 0], 6: [2.5, 0, 0], 7: [1.5, -1, 0]}
+    LAYOUT = {1: [-3, -1.5, 0], 2: [-3, 1.5, 0],  3: [-1, 0, 0], 
+            4: [1, 0, 0], 5: [2.5, 1.5, 0], 6: [4, 0, 0], 7: [2.5, -1.5, 0]}
 
     INDICATION_COLOR = YELLOW
+
+    MOVES = [[5, 3], [6, 4], [5, 7], [6, 4], [5, 7], [6, 4], [5, 7]]
