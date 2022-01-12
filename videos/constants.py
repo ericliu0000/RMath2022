@@ -25,13 +25,14 @@ LONG_PAUSE_TIME = 4
 
 # Text color as a Manim color
 TEXT_COLOR = RED
+INDICATION_COLOR = YELLOW
 
 # Helper function to generate animations in bulk for indication
 def bulk_indicate(graph: Graph, edges: list):
     actions = []
 
     for edge in edges:
-        actions.append(Indicate(graph.edges[edge], color=TEXT_COLOR))
+        actions.append(Indicate(graph.edges[edge], color=INDICATION_COLOR))
 
     return actions
 
@@ -41,7 +42,7 @@ def bulk_indicate_points(graph: Graph, points: list):
 
     for point in points:
         actions.append(Indicate(graph.vertices[point], 
-        color=OptimalPlacementConstants.INDICATION_COLOR))
+        color=INDICATION_COLOR))
 
     return actions
 
@@ -72,6 +73,8 @@ class PathGraphConstants:
 
 
 class SubgraphConstants:
+    TEXT_SHIFT = DOWN * 2.5
+
     VERTICES = [1, 2, 3, 4, 5, 6, 7, 8, 11, 13, 16, 18]
     EDGES = [(11, 13), (2, 11), (2, 13),
              (1, 3), (3, 4), (4, 5), (5, 6), (6, 8), (8, 1),
@@ -140,7 +143,6 @@ class OptimalPlacementConstants:
     LAYOUT = {1: [-3, -1.5, 0], 2: [-3, 1.5, 0],  3: [-1, 0, 0], 
             4: [1, 0, 0], 5: [2.5, 1.5, 0], 6: [4, 0, 0], 7: [2.5, -1.5, 0]}
 
-    INDICATION_COLOR = YELLOW
     TEXT_SHIFT = DOWN * 2.5
 
     MOVES = [[5, 3], [6, 4], [5, 7], [6, 4], [5, 7], [6, 4], [5, 7]]
