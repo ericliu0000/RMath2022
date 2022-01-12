@@ -65,7 +65,7 @@ class OptimizeGraphs(Scene):
 
         # Indicate vestigial structures
         self.wait(PAUSE_TIME)
-        self.play(*self.bulk_indicate(simple_graph1,
+        self.play(*bulk_indicate(simple_graph1,
                 [(0, 3), (1, 4), (2, 5), (5, 6), (6, 7), (1, 8), (8, 9), (9, 10)]),
                 run_time=OptimizationConstants.ANIMATION_TIME)
         self.wait(PAUSE_TIME)
@@ -93,7 +93,7 @@ class OptimizeGraphs(Scene):
         self.play(Write(text5_1), Write(text5_2))
 
         # Emphasize vestigial structures on second graph
-        self.play(*self.bulk_indicate(graph1,
+        self.play(*bulk_indicate(graph1,
                     [(6, 7), (7, 8), (8, 9), (9, 10), (0, 11), (11, 12), (12, 13)]),
                     run_time=OptimizationConstants.ANIMATION_TIME)
         self.wait(PAUSE_TIME)
@@ -106,7 +106,7 @@ class OptimizeGraphs(Scene):
         self.wait(PAUSE_TIME)
 
         # Indicate graph
-        self.play(*self.bulk_indicate(graph2, [(0, 1), (1, 2), (2, 3), (0, 3)]),
+        self.play(*bulk_indicate(graph2, [(0, 1), (1, 2), (2, 3), (0, 3)]),
                     run_time=OptimizationConstants.ANIMATION_TIME)
         self.wait(LONG_PAUSE_TIME)
 
@@ -116,12 +116,3 @@ class OptimizeGraphs(Scene):
         self.play(Uncreate(text6_3))
         self.play(Uncreate(graph2))
         self.wait(PAUSE_TIME)
-
-
-    def bulk_indicate(self, graph, edges: list):
-        actions = []
-
-        for edge in edges:
-            actions.append(Indicate(graph.edges[edge], color=TEXT_COLOR))
-
-        return actions

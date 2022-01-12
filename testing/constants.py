@@ -1,4 +1,5 @@
 from manim import *
+import math
 
 # Next text time in cycles
 NEXT_TEXT_TIME = 4
@@ -24,6 +25,15 @@ LONG_PAUSE_TIME = 4
 
 # Text color as a Manim color
 TEXT_COLOR = RED
+
+# Helper function to generate animations in bulk for indication
+def bulk_indicate(graph: Graph, edges: list):
+    actions = []
+
+    for edge in edges:
+        actions.append(Indicate(graph.edges[edge], color=TEXT_COLOR))
+
+    return actions
 
 class CycleGraphConstants:
     # Layout of vertices in 6-cycle graph
@@ -70,6 +80,33 @@ class SubgraphConstants:
         7: [-1.5, -0.5, 0], 8: [-0.5, 0, 0], 11: [-0.5, 1.5, 0],
         13: [1, 1, 0], 16: [-1, -1, 0], 18: [-1.5, 0.5, 0]
     }
+
+class AltSubgraphConstants:
+    VERTICES = [i for i in range(1, 15)] + [i for i in range(101, 111)]
+    EDGES = [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 9), 
+        (9, 10), (10, 11), (11, 12), (12, 13), (13, 14), (14, 1), (101, 102), 
+        (102, 103), (103, 104), (104, 105), (105, 106), (106, 107), 
+        (107, 108), (108, 109), (109, 110), (110, 101), (1, 101), (2, 101),
+        (2, 102), (3, 102), (4, 102), (4, 103), (5, 103), (6, 103), (6, 104),
+        (6, 105), (7, 105), (8, 105), (8, 106), (8, 107), (9, 107), (10, 107),
+        (10, 108), (11, 108), (11, 109), (12, 109), (13, 109), (13, 110),
+        (14, 110), (1, 110)]
+
+    FULL_LAYOUT = {}
+
+    for i in range(1, 15):
+        FULL_LAYOUT[i] = [1.5 * math.cos(math.pi * i / 7), 1.5 * math.sin(math.pi * i / 7), 0]
+    
+    for i in range(101, 111):
+        FULL_LAYOUT[i] = [math.cos((math.pi * i / 5) + math.pi / 40), math.sin((math.pi * i / 5) + math.pi / 40), 0]
+
+    SPLIT_LAYOUT = {}
+    for i in range(1, 15):
+        SPLIT_LAYOUT[i] = [1.5 * math.cos(math.pi * i / 7) - 2, 1.5 * math.sin(math.pi * i / 7), 0]
+    
+    for i in range(101, 111):
+        SPLIT_LAYOUT[i] = [1.5 * math.cos(math.pi * i / 5) + 2, 1.5 * math.sin(math.pi * i / 5), 0]
+
 
 class OptimizationConstants:
     # Duration of animation in seconds
