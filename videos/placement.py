@@ -20,32 +20,32 @@ class OptimalPlacement(Scene):
         # Initialize text objects
         text1_1 = MarkupText(f"The optimal positions favor the hare,", color=TEXT_COLOR)
         text1_2 = MarkupText(f"allowing it to best delay or escape loss.", color=TEXT_COLOR)
-        text1_1.next_to(graph, DOWN, buff=TOP_TEXT_BUFFER)
+        text1_1.shift(OptimalPlacementConstants.TEXT_SHIFT)
         text1_2.next_to(text1_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
         text2_1 = MarkupText(f"Therefore, the hare will select a vertex", color=TEXT_COLOR)
         text2_2 = MarkupText(f"in the greatest fox number subgraph.", color=TEXT_COLOR)
-        text2_1.next_to(graph, DOWN, buff=TOP_TEXT_BUFFER)
+        text2_1.shift(OptimalPlacementConstants.TEXT_SHIFT)
         text2_2.next_to(text2_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
         text3_1 = MarkupText(f"In this case, the hare will select any", color=TEXT_COLOR)
         text3_2 = MarkupText(f"vertex in the sub-4-cycle graph.", color=TEXT_COLOR)
-        text3_1.next_to(graph, DOWN, buff=TOP_TEXT_BUFFER)
+        text3_1.shift(OptimalPlacementConstants.TEXT_SHIFT)
         text3_2.next_to(text3_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
         text4_1 = MarkupText(f"Furthermore, the hare will start on", color=TEXT_COLOR)
         text4_2 = MarkupText(f"the vertex with the greatest degree.", color=TEXT_COLOR)
-        text4_1.next_to(graph, DOWN, buff=TOP_TEXT_BUFFER)
+        text4_1.shift(OptimalPlacementConstants.TEXT_SHIFT)
         text4_2.next_to(text4_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
         text5_1 = MarkupText(f"This maximizes the hare's movement", color=TEXT_COLOR)
         text5_2 = MarkupText(f"options, alleviating being cornered.", color=TEXT_COLOR)
-        text5_1.next_to(graph, DOWN, buff=TOP_TEXT_BUFFER)
+        text5_1.shift(OptimalPlacementConstants.TEXT_SHIFT)
         text5_2.next_to(text5_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
         text6_1 = MarkupText(f"The fox will maximize the number of ", color=TEXT_COLOR)
         text6_2 = MarkupText(f"vertices between itself and the hare.", color=TEXT_COLOR)
-        text6_1.next_to(graph, DOWN, buff=TOP_TEXT_BUFFER)
+        text6_1.shift(OptimalPlacementConstants.TEXT_SHIFT)
         text6_2.next_to(text6_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
         text7_1 = MarkupText(f"Thus, the optimal starting position ", color=TEXT_COLOR)
@@ -54,7 +54,7 @@ class OptimalPlacement(Scene):
         text7_2.next_to(text7_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
         text8_1 = MarkupText(f"The hare is not deceased", color=TEXT_COLOR)
-        text8_1.next_to(graph, DOWN, buff=TOP_TEXT_BUFFER)
+        text8_1.shift(OptimalPlacementConstants.TEXT_SHIFT)
 
         # Create graph objects
         self.play(Create(graph))
