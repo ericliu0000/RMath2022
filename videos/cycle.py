@@ -7,7 +7,7 @@ class OneFoxCycle(Scene):
         # Create 6 cycle graph
         g = Graph(CycleGraphConstants.VERTICES, 
                     CycleGraphConstants.EDGES, 
-                    layout = CycleGraphConstants.LAYOUT)
+                    layout = CycleGraphConstants.LAYOUT).shift(UP * 0.5)
 
         # Initialize hare object
         hare = SVGMobject(HARE_FILE_NAME)
@@ -26,7 +26,7 @@ class OneFoxCycle(Scene):
         text1_2.next_to(text1_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
         text2_1 = MarkupText(f"The distance between the hare", color=TEXT_COLOR)
-        text2_2 = MarkupText(f"and the fox is always (n/2) - 1.", color=TEXT_COLOR)
+        text2_2 = MarkupText(f"and the fox is always (n/2) - 1,", color=TEXT_COLOR)
         text2_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text2_2.next_to(text2_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
@@ -50,18 +50,18 @@ class OneFoxCycle(Scene):
 
         # Create graph
         self.play(Create(g))
-        self.wait(0.5)
+        self.wait(PAUSE_TIME)
 
         # Add hare and fox
-        self.play(FadeIn(hare, shift=UP, scale=0.1))
-        self.play(FadeIn(fox, shift=UP, scale=0.1))
+        self.play(Create(hare))
+        self.play(Create(fox))
 
         # Add text and pause
         self.play(Create(text1_1), Create(text1_2))
-        self.wait(0.7)
+        self.wait(PAUSE_TIME)
 
         # Move animals
-        for i in range(25):
+        for i in range(31):
             buffer = [hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+3) % 6 + 1]), 
                         fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+6) % 6 + 1])]
 
@@ -80,8 +80,7 @@ class OneFoxCycle(Scene):
 
         # Fade out text
         self.play(FadeOut(text6_1))
-        self.wait()
 
         # Fade out everything
         self.play(Uncreate(hare), Uncreate(fox), Uncreate(g))
-        self.wait()
+        self.wait(PAUSE_TIME)
