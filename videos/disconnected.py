@@ -40,6 +40,6 @@ class DisconnectedGraph(Scene):
 
         # Move animals
         for i in range(10):
-            self.play(fox.animate(run_time=0.6).move_to(r.vertices[(i)%3 + 1]),
-                    hare.animate(run_time=0.6).move_to(l.vertices[(i)%3 + 1]))
-
+            self.play(fox.animate(run_time=0.2).move_to(r.vertices[(i)%3 + 1]),
+                    hare.animate(run_time=0.2).move_to(l.vertices[(i)%3 + 1]))
+            self.wait(0.2)

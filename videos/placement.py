@@ -112,10 +112,9 @@ class OptimalPlacement(Scene):
 
         # Play out a game
         for hare_pos, fox_pos in OptimalPlacementConstants.MOVES:
-            self.play(fox.animate(run_time=ANIMATION_TIME).move_to(graph.vertices[fox_pos]))
-            self.wait(0.1)
-            self.play(hare.animate(run_time=ANIMATION_TIME).move_to(graph.vertices[hare_pos]))
-            self.wait(PAUSE_TIME / 2)
+            self.play(fox.animate(run_time=ANIMATION_TIME / 2).move_to(graph.vertices[fox_pos]))
+            self.play(hare.animate(run_time=ANIMATION_TIME / 2).move_to(graph.vertices[hare_pos]))
+            self.wait(PAUSE_TIME / 4)
 
         self.play(Write(text8_1))
         self.wait(LONG_PAUSE_TIME)

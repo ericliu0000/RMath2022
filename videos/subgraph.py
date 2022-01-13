@@ -68,10 +68,10 @@ class Subgraph(Scene):
             *bulk_indicate_points(graph, [11, 13, 4, 5, 16, 18]))
 
         self.play(ReplacementTransform(text2_2, text2_2_2))
-        self.wait(LONG_PAUSE_TIME)
+        self.wait(PAUSE_TIME)
 
         # Explode the graph and shift up slightly
-        self.play(graph.animate(run_time=ANIMATION_TIME * 2)
+        self.play(graph.animate(run_time=ANIMATION_TIME)
                 .change_layout(SubgraphConstants.EXPLODED_LAYOUT))
         self.play(graph.animate(run_time=ANIMATION_TIME / 2).shift(UP * 0.7))
 
@@ -87,17 +87,16 @@ class Subgraph(Scene):
         self.wait(LONG_PAUSE_TIME)
 
         # Reunite graph, show fox and hare
-        self.play(graph.animate(run_time=ANIMATION_TIME * 2)
+        self.play(graph.animate(run_time=ANIMATION_TIME)
                 .change_layout(SubgraphConstants.FULL_LAYOUT))
         self.play(Create(hare), Create(fox), Uncreate(text4_1), Uncreate(text4_2))
         self.wait(PAUSE_TIME)
 
         # Play game
         for hare_pos, fox_pos in SubgraphConstants.MOVES:
-            self.play(fox.animate(run_time=ANIMATION_TIME / 2).move_to(graph.vertices[fox_pos]))
-            self.wait(0.1)
-            self.play(hare.animate(run_time=ANIMATION_TIME / 2).move_to(graph.vertices[hare_pos]))
-            self.wait(PAUSE_TIME / 2)
+            self.play(fox.animate(run_time=ANIMATION_TIME / 3).move_to(graph.vertices[fox_pos]))
+            self.play(hare.animate(run_time=ANIMATION_TIME / 3).move_to(graph.vertices[hare_pos]))
+            self.wait(PAUSE_TIME / 4)
 
         # Show final text
         self.play(Create(text5_1))

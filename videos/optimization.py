@@ -74,7 +74,6 @@ class OptimizeGraphs(Scene):
         # Cycle text and graph
         self.play(ReplacementTransform(text2_1, text3_1), 
                 ReplacementTransform(text2_2, text3_2))
-        self.wait(PAUSE_TIME)
         self.play(ReplacementTransform(simple_graph1, simple_graph2))
         self.wait(PAUSE_TIME)
 

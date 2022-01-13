@@ -62,7 +62,7 @@ class OneFoxCycle(Scene):
         self.wait(PAUSE_TIME)
 
         # Move animals
-        for i in range(31):
+        for i in range(25):
             buffer = [hare.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+3) % 6 + 1]), 
                         fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[(i+6) % 6 + 1])]
 

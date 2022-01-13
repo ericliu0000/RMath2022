@@ -22,9 +22,7 @@ class WheelGraph(Scene):
         text1_1 = MarkupText(f"Given any wheel graph, the fox and", color=TEXT_COLOR)
         text1_2 = MarkupText(f"hare begin adjacent to another.", color=TEXT_COLOR)
         text1_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
-        text1_2.next_to(text1_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
-
-        
+        text1_2.next_to(text1_1, DOWN, buff=BETWEEN_TEXT_BUFFER)        
 
         text2_1 = MarkupText(f"Because the fox controls all vertices", color=TEXT_COLOR)
         text2_2 = MarkupText(f"from the middle, the hare loses.", color=TEXT_COLOR)
@@ -51,11 +49,9 @@ class WheelGraph(Scene):
         self.wait(LONG_PAUSE_TIME)
 
         # quickly move the hare to all other vertices
-        FAST_SPEED = 0.1
-
         for i in range(1, len(g.vertices)):
-            self.play(hare.animate().move_to(g.vertices[i]), run_time=FAST_SPEED, rate_func=smooth)
-            self.wait()
+            self.play(hare.animate().move_to(g.vertices[i]), run_time=0.1)
+            self.wait(0.2)
 
         self.play(ReplacementTransform(text1_1, text2_1), 
                 ReplacementTransform(text1_2, text2_2))

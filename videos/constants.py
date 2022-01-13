@@ -5,7 +5,7 @@ import math
 NEXT_TEXT_TIME = 4
 
 # Animation delay time in seconds
-ANIMATION_TIME = 1.0
+ANIMATION_TIME = 0.8
 
 # Fox and hare file names
 FOX_FILE_NAME = "assets/foxBased.svg"
@@ -20,8 +20,8 @@ TOP_TEXT_BUFFER = 0.4
 BETWEEN_TEXT_BUFFER = 0.2
 
 # Animation wait time in seconds
-PAUSE_TIME = 1
-LONG_PAUSE_TIME = 4
+PAUSE_TIME = 0.8
+LONG_PAUSE_TIME = 3
 
 # Text color as a Manim color
 TEXT_COLOR = RED
@@ -56,7 +56,7 @@ class CycleGraphConstants:
     LAYOUT = {1: [-2, 1.3, 0], 2: [0, 2.3, 0], 3: [2, 1.3, 0],
               4: [2, -0.7, 0], 5: [0, -1.7, 0], 6: [-2, -0.7, 0]}
 
-    ONE_FOX_FRAMES = [i for i in range(5, 30, 5)]
+    ONE_FOX_FRAMES = [i for i in range(4, 25, 4)]
 
 class ThreeCycleGraphConstants:
     TEXT_SHIFT = UP * 2.5
@@ -103,8 +103,7 @@ class SubgraphConstants:
         13: [2, 1.5, 0], 16: [-1.5, -2, 0], 18: [-2.5, 1, 0]
     }
 
-    MOVES = [(2, 6), (1, 5), (8, 4), (6, 3), (5, 1),
-             (4, 8), (3, 6), (1, 5), (8, 4)]
+    MOVES = [(2, 6), (1, 5), (8, 4), (6, 3), (5, 1), (4, 8)]
 
 
 class AltSubgraphConstants:
