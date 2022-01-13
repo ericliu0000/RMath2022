@@ -8,6 +8,18 @@ class OptimalPlacement(Scene):
                 OptimalPlacementConstants.EDGES, 
                 layout=OptimalPlacementConstants.LAYOUT)
 
+
+        graph_with_4_cycle = Graph(OptimalPlacementConstants.VERTICES,
+                OptimalPlacementConstants.EDGES,
+                layout=OptimalPlacementConstants.LAYOUT,
+                edge_config={
+                    OptimalPlacementConstants.EDGES[-2]: {"stroke_color": RED},
+                    OptimalPlacementConstants.EDGES[-3]: {"stroke_color": RED},
+                    OptimalPlacementConstants.EDGES[-4]: {"stroke_color": RED},
+                    OptimalPlacementConstants.EDGES[-5]: {"stroke_color": RED}
+                })
+
+
         # Initialize hare and fox objects
         hare = SVGMobject(HARE_FILE_NAME)
         hare.scale(FOX_SCALE)
@@ -38,10 +50,7 @@ class OptimalPlacement(Scene):
         text4_1.shift(OptimalPlacementConstants.TEXT_SHIFT)
         text4_2.next_to(text4_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
-        text5_1 = MarkupText(f"This maximizes the hare's movement", color=TEXT_COLOR)
-        text5_2 = MarkupText(f"options, alleviating being cornered.", color=TEXT_COLOR)
-        text5_1.shift(OptimalPlacementConstants.TEXT_SHIFT)
-        text5_2.next_to(text5_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
+
 
         text6_1 = MarkupText(f"The fox will maximize the number of ", color=TEXT_COLOR)
         text6_2 = MarkupText(f"vertices between itself and the hare.", color=TEXT_COLOR)
@@ -69,11 +78,11 @@ class OptimalPlacement(Scene):
         self.wait(LONG_PAUSE_TIME)
 
         self.play(ReplacementTransform(text2_1, text3_1),
-            ReplacementTransform(text2_2, text3_2))
+            ReplacementTransform(text2_2, text3_2), ReplacementTransform(graph, graph_with_4_cycle))
         self.wait(LONG_PAUSE_TIME)
 
         # Indicate vertices
-        self.play(*bulk_indicate_points(graph, [4, 5, 6, 7]),
+        self.play(*bulk_indicate_points(graph_with_4_cycle, [4, 5, 6, 7]),
             run_time=ANIMATION_TIME)
         self.wait(PAUSE_TIME)
 
@@ -81,43 +90,45 @@ class OptimalPlacement(Scene):
             ReplacementTransform(text3_2, text4_2))
         self.wait(LONG_PAUSE_TIME)
 
-        self.play(ReplacementTransform(text4_1, text5_1),
-            ReplacementTransform(text4_2, text5_2))
-        self.wait(LONG_PAUSE_TIME)
+        # self.play(ReplacementTransform(text4_1, text5_1),
+        #     ReplacementTransform(text4_2, text5_2), Indicate(graph_with_4_cycle.vertices[4], scale_factor=2, 
+        #     color=INDICATION_COLOR))
+        # self.wait(LONG_PAUSE_TIME)
 
-        # Indicate best point for hare
-        self.play(Indicate(graph.vertices[4], scale_factor=2, 
-            color=INDICATION_COLOR))
-        self.wait(PAUSE_TIME)
+
 
         # Make hare show up in spot
         self.play(Create(hare))
 
         # Continue cycling text    
-        self.play(ReplacementTransform(text5_1, text6_1), 
-            ReplacementTransform(text5_2, text6_2))
+        self.play(ReplacementTransform(text4_1, text6_1), 
+            ReplacementTransform(text4_2, text6_2))
         self.wait(LONG_PAUSE_TIME)
-
+        self.play(graph_with_4_cycle.vertices[1].animate.scale(2).set_color(YELLOW))
+        self.wait()
         self.play(ReplacementTransform(text6_1, text7_1),
             ReplacementTransform(text6_2, text7_2))
         self.wait(LONG_PAUSE_TIME)
 
         # Indicate fox placement
-        self.play(Indicate(graph.vertices[1], scale_factor=2,
-            color=INDICATION_COLOR))
-        self.wait(LONG_PAUSE_TIME)
+        # self.play(Indicate(graph_with_4_cycle.vertices[1], scale_factor=2,
+        #     color=INDICATION_COLOR))
+        # self.wait(LONG_PAUSE_TIME)
+
+
 
         # Create fox and remove text
-        self.play(Create(fox), Uncreate(text7_1), Uncreate(text7_2))
+        self.play(Create(fox), Uncreate(text7_1), Uncreate(text7_2), graph_with_4_cycle.vertices[1].animate.scale(0.5).set_color(WHITE))
+
 
         # Play out a game
         for hare_pos, fox_pos in OptimalPlacementConstants.MOVES:
-            self.play(fox.animate(run_time=ANIMATION_TIME / 2).move_to(graph.vertices[fox_pos]))
-            self.play(hare.animate(run_time=ANIMATION_TIME / 2).move_to(graph.vertices[hare_pos]))
+            self.play(fox.animate(run_time=ANIMATION_TIME / 2).move_to(graph_with_4_cycle.vertices[fox_pos]))
+            self.play(hare.animate(run_time=ANIMATION_TIME / 2).move_to(graph_with_4_cycle.vertices[hare_pos]))
             self.wait(PAUSE_TIME / 4)
 
         self.play(Write(text8_1))
         self.wait(LONG_PAUSE_TIME)
 
-        self.play(Uncreate(graph))
+        self.play(Uncreate(graph_with_4_cycle))
         self.wait(PAUSE_TIME)
