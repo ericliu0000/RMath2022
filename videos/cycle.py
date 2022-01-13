@@ -7,7 +7,8 @@ class OneFoxCycle(Scene):
         # Create 6 cycle graph
         g = Graph(CycleGraphConstants.VERTICES, 
                     CycleGraphConstants.EDGES, 
-                    layout = CycleGraphConstants.LAYOUT).shift(UP * 0.5)
+                    layout = CycleGraphConstants.LAYOUT).shift(
+                        CycleGraphConstants.GRAPH_OFFSET)
 
         # Initialize hare object
         hare = SVGMobject(HARE_FILE_NAME)

@@ -49,6 +49,8 @@ def bulk_indicate_points(graph: Graph, points: list):
 
 
 class CycleGraphConstants:
+    GRAPH_OFFSET = UP * 0.5
+
     VERTICES = [1, 2, 3, 4, 5, 6]
     EDGES = [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 1)]
     LAYOUT = {1: [-2, 1.3, 0], 2: [0, 2.3, 0], 3: [2, 1.3, 0],
