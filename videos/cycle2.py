@@ -29,8 +29,8 @@ class TwoFoxCycle(Scene):
         text1_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text1_2.next_to(text1_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
-        text2_1 = MarkupText(f"The distance between the hare", color=TEXT_COLOR)
-        text2_2 = MarkupText(f"and the fox is floor((n - 1) / 2)", color=TEXT_COLOR)
+        text2_1 = MarkupText(f"The distance between the hare and", color=TEXT_COLOR)
+        text2_2 = MarkupText(f"the fox begins at floor((n - 1) / 2)", color=TEXT_COLOR)
         text2_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text2_2.next_to(text2_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
@@ -39,7 +39,7 @@ class TwoFoxCycle(Scene):
         text3_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
         text3_2.next_to(text3_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
-        text4_1 = MarkupText(f"Now, the hare is deceased", color=TEXT_COLOR)
+        text4_1 = MarkupText(f"The hare is deceased", color=TEXT_COLOR)
         text4_1.next_to(g.vertices[5], DOWN, buff=TOP_TEXT_BUFFER)
 
         # Create graph and wait
@@ -47,8 +47,8 @@ class TwoFoxCycle(Scene):
         self.wait(PAUSE_TIME)
         
         # Add hare and foxes
-        self.play(FadeIn(hare, shift=UP, scale=0.1))
-        self.play(FadeIn(fox1, shift=UP, scale=0.1), FadeIn(fox2, shift=UP, scale=0.1))
+        self.play(Create(hare))
+        self.play(Create(fox1), Create(fox2, shift=UP, scale=0.1))
 
         # Add text1 and pause
         self.play(Create(text1_1), Create(text1_2))
@@ -77,5 +77,3 @@ class TwoFoxCycle(Scene):
         self.play(Uncreate(text4_1), Uncreate(fox1), Uncreate(fox2))
         self.play(Uncreate(g))
         self.wait(PAUSE_TIME)
-
-
