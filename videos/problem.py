@@ -28,7 +28,7 @@ class ProblemGraph(Scene):
 
         # Indicate place to optimize
         self.play(ReplacementTransform(text1, text2))
-        self.play(*bulk_indicate(graph, [(20, 21), (21, 22), (22, 23), (23, 24)]),
+        self.play(*bulk_indicate(graph, [(1, 20), (20, 21), (21, 22), (22, 23), (23, 24)]),
                 *bulk_indicate_points(graph, [20, 21, 22, 23, 24]))
         self.wait(PAUSE_TIME)
         self.play(graph.animate.remove_vertices(20, 21, 22, 23, 24))
