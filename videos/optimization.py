@@ -26,7 +26,7 @@ class OptimizeGraphs(Scene):
 
         # Make text
         text1_1 = MarkupText("We start off with a complex", color=TEXT_COLOR)
-        text1_2 = MarkupText("graph, having many branches.", color=TEXT_COLOR)
+        text1_2 = MarkupText("graph with many branches.", color=TEXT_COLOR)
         text1_2.shift(OptimizationConstants.TEXT_SHIFT)
         text1_1.next_to(text1_2, UP, buff=BETWEEN_TEXT_BUFFER)
 
@@ -67,20 +67,21 @@ class OptimizeGraphs(Scene):
         self.wait(PAUSE_TIME)
         self.play(*bulk_indicate(simple_graph1,
                 [(0, 3), (1, 4), (2, 5), (5, 6), (6, 7), (1, 8), (8, 9), (9, 10)]),
+                *bulk_indicate_points(simple_graph1, [3, 4, 5, 6, 7, 8, 9, 10]),
                 run_time=OptimizationConstants.ANIMATION_TIME)
         self.wait(PAUSE_TIME)
 
         # Cycle text and graph
         self.play(ReplacementTransform(text2_1, text3_1), 
-                    ReplacementTransform(text2_2, text3_2))
+                ReplacementTransform(text2_2, text3_2))
         self.wait(PAUSE_TIME)
         self.play(ReplacementTransform(simple_graph1, simple_graph2))
         self.wait(PAUSE_TIME)
 
         # Indicate entire graph and swap text
         self.play(Indicate(simple_graph2), 
-                    ReplacementTransform(text3_1, text4_1), 
-                    ReplacementTransform(text3_2, text4_2))
+                ReplacementTransform(text3_1, text4_1), 
+                ReplacementTransform(text3_2, text4_2))
         self.wait(LONG_PAUSE_TIME)
 
         # Remove graph and text
@@ -94,25 +95,25 @@ class OptimizeGraphs(Scene):
 
         # Emphasize vestigial structures on second graph
         self.play(*bulk_indicate(graph1,
-                    [(6, 7), (7, 8), (8, 9), (9, 10), (0, 11), (11, 12), (12, 13)]),
-                    run_time=OptimizationConstants.ANIMATION_TIME)
+                [(6, 7), (7, 8), (8, 9), (9, 10), (0, 11), (11, 12), (12, 13)]),
+                *bulk_indicate_points(graph1, [7, 8, 9, 10, 11, 12, 13]),
+                run_time=OptimizationConstants.ANIMATION_TIME)
         self.wait(PAUSE_TIME)
 
         # Cycle text
         self.play(ReplacementTransform(graph1, graph2), 
-                    ReplacementTransform(text5_1, text6_1), 
-                    ReplacementTransform(text5_2, text6_2),
-                    Write(text6_3))
+                ReplacementTransform(text5_1, text6_1), 
+                ReplacementTransform(text5_2, text6_2),
+                Write(text6_3))
         self.wait(PAUSE_TIME)
 
         # Indicate graph
         self.play(*bulk_indicate(graph2, [(0, 1), (1, 2), (2, 3), (0, 3)]),
-                    run_time=OptimizationConstants.ANIMATION_TIME)
+                *bulk_indicate_points(graph2, [0, 1, 2, 3]),
+                run_time=OptimizationConstants.ANIMATION_TIME)
         self.wait(LONG_PAUSE_TIME)
 
         # Remove graph and text
-        self.play(Uncreate(text6_1))
-        self.play(Uncreate(text6_2))
-        self.play(Uncreate(text6_3))
+        self.play(Uncreate(text6_1), Uncreate(text6_2), Uncreate(text6_3))
         self.play(Uncreate(graph2))
         self.wait(PAUSE_TIME)
