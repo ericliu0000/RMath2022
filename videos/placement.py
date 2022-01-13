@@ -87,7 +87,7 @@ class OptimalPlacement(Scene):
 
         # Indicate best point for hare
         self.play(Indicate(graph.vertices[4], scale_factor=2, 
-            color=OptimalPlacementConstants.INDICATION_COLOR))
+            color=INDICATION_COLOR))
         self.wait(PAUSE_TIME)
 
         # Make hare show up in spot
@@ -104,7 +104,7 @@ class OptimalPlacement(Scene):
 
         # Indicate fox placement
         self.play(Indicate(graph.vertices[1], scale_factor=2,
-            color=OptimalPlacementConstants.INDICATION_COLOR))
+            color=INDICATION_COLOR))
         self.wait(LONG_PAUSE_TIME)
 
         # Create fox and remove text
