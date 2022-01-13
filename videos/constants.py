@@ -12,8 +12,8 @@ FOX_FILE_NAME = "assets/foxBased.svg"
 HARE_FILE_NAME = "assets/hareBased.svg"
 
 # Fox and hare scales
-FOX_SCALE = 0.75
-HARE_SCALE = 0.6
+FOX_SCALE = 0.6
+HARE_SCALE = 0.48
 
 # Text buffers in units
 TOP_TEXT_BUFFER = 0.4
@@ -47,7 +47,6 @@ def bulk_indicate_points(graph: Graph, points: list):
     return actions
 
 class CycleGraphConstants:
-    # Layout of vertices in 6-cycle graph
     VERTICES = [1, 2, 3, 4, 5, 6]
     EDGES = [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 1)]
     LAYOUT = {1: [-2, 1.3, 0], 2: [0, 2.3, 0], 3: [2, 1.3, 0],
@@ -56,7 +55,6 @@ class CycleGraphConstants:
     ONE_FOX_FRAMES = [i for i in range(4, 21, 4)]
 
 class WheelGraphConstants:
-    # Layout of vertices in wheel graph W_7
     VERTICES = [1, 2, 3, 4, 5, 6, 7]
     EDGES = [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 1),
              (1, 7), (2, 7), (3, 7), (4, 7), (5, 7), (6, 7)]
@@ -65,11 +63,11 @@ class WheelGraphConstants:
 
 
 class PathGraphConstants:
-    # Layout of vertices in path graph P_7
-    VERTICES = [1, 2, 3, 4, 5, 6, 7]
-    EDGES = [(1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 1)]
-    LAYOUT = {1: [-2, 1.3, 0], 2: [0, 2.3, 0], 3: [2, 1.3, 0],
-              4: [2, -0.7, 0], 5: [0, -1.7, 0], 6: [-2, -0.7, 0], 7: [0, 0.3, 0]}
+    VERTICES = [1, 2, 3]
+    EDGES = [(1, 2), (2, 3)]
+    LAYOUT = {1: [-2, 0, 0], 2: [0, 0, 0], 3: [2, 0, 0]}
+
+    TEXT_SHIFT = DOWN * 2
 
 
 class SubgraphConstants:
@@ -122,10 +120,8 @@ class AltSubgraphConstants:
 
 
 class OptimizationConstants:
-    # Duration of animation in seconds
     ANIMATION_TIME = 3
 
-    # Amount of space to offset, in units
     TEXT_SHIFT = UP * 2.5
     GRAPH_SHIFT = DOWN * 1.0
 

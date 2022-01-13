@@ -4,41 +4,50 @@ from constants import *
 class Path(Scene):
     def construct(self):
         # Create 3 vertex path graph
-        vertices = [1, 2, 3]
-        edges = [(1, 2), (2, 3)]
-        layout = {1: [-2, 0, 0], 2: [0, 0, 0], 3: [2, 0, 0]}
-        g = Graph(vertices, edges, layout=layout)
+        g = Graph(PathGraphConstants.VERTICES,
+            PathGraphConstants.EDGES, 
+            layout=PathGraphConstants.LAYOUT)
 
         # Initialize hare object
         hare = SVGMobject(HARE_FILE_NAME)
         hare.scale(FOX_SCALE)
-        hare.next_to(g.vertices[1], UP)
+        hare.move_to(g.vertices[1])
 
         # Initialize fox object
         fox = SVGMobject(FOX_FILE_NAME)
         fox.scale(HARE_SCALE)
-        fox.next_to(g.vertices[2], UP)
+        fox.move_to(g.vertices[3])
 
         # Make text
-        text = MarkupText(f"The hare is deceased", color=TEXT_COLOR)
-        text.next_to(g, DOWN, buff=1)
+        text1 = MarkupText(f"The hare and fox start at opposite ends.", color=TEXT_COLOR)
+        text1.shift(PathGraphConstants.TEXT_SHIFT)
+
+        text2 = MarkupText(f"The hare has nowhere to move.", color=TEXT_COLOR)
+        text2.shift(PathGraphConstants.TEXT_SHIFT)
+
+        text3 = MarkupText(f"The hare is deceased", color=TEXT_COLOR)
+        text3.shift(PathGraphConstants.TEXT_SHIFT)
 
         # Create graph
         self.play(Create(g))
         self.wait(PAUSE_TIME)
 
         # Add hare
-        self.play(FadeIn(hare, shift=UP, scale=0.1))
-        self.play(FadeIn(fox, shift=UP, scale=0.1))
+        self.play(Create(hare))
+        self.play(Create(fox))
+        self.play(Create(text1))
+        self.wait(PAUSE_TIME)
 
-        # Move hare to the other node
-        self.play(fox.animate(run_time=2).next_to(g.vertices[1], UP))
+        # Move fox to the other nodes and cycle text
+        self.play(fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[2]))
+        self.play(ReplacementTransform(text1, text2))
+        self.wait(PAUSE_TIME)
 
         # Add text and pause
-        self.play(FadeOut(hare))
-        self.play(Create(text))
+        self.play(fox.animate(run_time=ANIMATION_TIME).move_to(g.vertices[1]))
+        self.play(Uncreate(hare), ReplacementTransform(text2, text3))
         self.wait(LONG_PAUSE_TIME)
 
         # Remove elements
-        self.play(FadeOut(text), Uncreate(fox), Uncreate(g))
+        self.play(Uncreate(text3), Uncreate(fox), Uncreate(g))
         self.wait(PAUSE_TIME)
