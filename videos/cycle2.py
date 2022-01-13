@@ -14,7 +14,7 @@ class TwoFoxCycle(Scene):
         hare.scale(FOX_SCALE)
         hare.move_to(g.vertices[6])
 
-        # Initialize fox object
+        # Initialize fox objects
         fox1 = SVGMobject(FOX_FILE_NAME)
         fox1.scale(HARE_SCALE)
         fox1.move_to(g.vertices[3])

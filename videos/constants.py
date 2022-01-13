@@ -58,6 +58,12 @@ class CycleGraphConstants:
 
     ONE_FOX_FRAMES = [i for i in range(5, 30, 5)]
 
+class ThreeCycleGraphConstants:
+    TEXT_SHIFT = UP * 2.5
+
+    VERTICES = [1, 2, 3]
+    EDGES = [(1, 2), (2, 3), (3, 1)]
+    LAYOUT = {1: [-2, 0, 0], 2: [0, -2.4, 0], 3: [2, 0, 0]}
 
 class WheelGraphConstants:
     VERTICES = [1, 2, 3, 4, 5, 6, 7]
