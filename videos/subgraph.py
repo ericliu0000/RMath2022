@@ -24,13 +24,13 @@ class Subgraph(Scene):
 
         text2_1 = MarkupText(f"This 2-fox graph contains three", color=TEXT_COLOR)
         text2_2 = MarkupText(f"sub-cycles: two 3-cycles,<span foreground=\"BLACK\"> and a 5-cycle.</span>", color=TEXT_COLOR)
-        text2_2_2 = MarkupText(f"sub-cycles: two 3-cycles, and a 5-cycle.", color=TEXT_COLOR)
+        text2_2_2 = MarkupText(f"sub-cycles: two 3-cycles, and a 6-cycle.", color=TEXT_COLOR)
         text2_1.shift(SubgraphConstants.TEXT_SHIFT)
         text2_2.next_to(text2_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
         text2_2_2.next_to(text2_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
         text3_1 = MarkupText(f"The largest fox number sub-cycle", color=TEXT_COLOR)
-        text3_2 = MarkupText(f"is the 5-cycle graph, at 2.", color=TEXT_COLOR)
+        text3_2 = MarkupText(f"is the 6-cycle graph, at 2.", color=TEXT_COLOR)
         text3_1.shift(SubgraphConstants.TEXT_SHIFT)
         text3_2.next_to(text3_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 

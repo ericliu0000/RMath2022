@@ -50,7 +50,7 @@ class OptimalPlacement(Scene):
 
         text7_1 = MarkupText(f"Thus, the optimal starting position ", color=TEXT_COLOR)
         text7_2 = MarkupText(f"for this graph would be as follows.", color=TEXT_COLOR)
-        text7_1.next_to(graph, DOWN, buff=TOP_TEXT_BUFFER)
+        text7_1.shift(OptimalPlacementConstants.TEXT_SHIFT)
         text7_2.next_to(text7_1, DOWN, buff=BETWEEN_TEXT_BUFFER)
 
         text8_1 = MarkupText(f"The hare is not deceased", color=TEXT_COLOR)
