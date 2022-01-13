@@ -77,7 +77,9 @@ class Subgraph(Scene):
 
         # Continue iterating through text
         self.play(ReplacementTransform(text2_1, text3_1),
-            ReplacementTransform(text2_2_2, text3_2))
+            ReplacementTransform(text2_2_2, text3_2),
+            *bulk_indicate(graph, [(1, 3), (3, 4), (4, 5), (5, 6), (6, 8), (8, 1)]),
+            *bulk_indicate_points(graph, [1, 3, 4, 5, 6, 8]))
         self.wait(LONG_PAUSE_TIME)
 
         self.play(ReplacementTransform(text3_1, text4_1),
